@@ -23,6 +23,7 @@ const cascadiaMono = Cascadia_Mono({
 export const metadata: Metadata = {
   title: "MOOSEUM",
   description: "A digital mooseum.",
+  themeColor: '#8B5DCF',
 };
 
 export default function DashboardLayout({ 
