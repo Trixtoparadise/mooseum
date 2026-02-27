@@ -23,7 +23,6 @@ const cascadiaMono = Cascadia_Mono({
 export const metadata: Metadata = {
   title: "MOOSEUM",
   description: "A digital mooseum.",
-  themeColor: '#8B5DCF',
 };
 
 export default function DashboardLayout({ 
@@ -34,6 +33,7 @@ export default function DashboardLayout({
       <html lang="en" className={`${brownBagLunch.variable} ${gangOfThree.variable} ${cascadiaMono.className}`}>
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="theme-color" content="#8B5DCF" />
         </head>
         <body>
           <AppRouterCacheProvider
