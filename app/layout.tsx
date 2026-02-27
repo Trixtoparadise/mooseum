@@ -11,6 +11,11 @@ const brownBagLunch = localFont({
   variable: '--font-brownbaglunch'
 }); 
 
+const gangOfThree = localFont({
+  src: "../public/fonts/GangOfThree.ttf",
+  variable: '--font-gangofthree'
+})
+
 const cascadiaMono = Cascadia_Mono({
   subsets: ['latin'],
 })
@@ -25,7 +30,7 @@ export default function DashboardLayout({
     children: React.ReactNode
   }) {
     return (
-      <html lang="en" className={`${brownBagLunch.variable} ${cascadiaMono.className}`}>
+      <html lang="en" className={`${brownBagLunch.variable} ${gangOfThree.variable} ${cascadiaMono.className}`}>
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Link  from 'next/link';
 import { useRef } from 'react';
-import { Menu, LightMode, Close, Palette, Man, ViewTimeline} from '@mui/icons-material';
+import { Menu, LightMode, Palette, Man, ViewTimeline} from '@mui/icons-material';
 import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 
