@@ -42,7 +42,7 @@ export default function Navbar () {
                     <List>
                         {routes.map((item) => (
                             <ListItem key={item.name} disablePadding>
-                                <ListItemButton className='bg-shade! my-0.5!'>
+                                <ListItemButton className='bg-shade! rounded-sm! my-1! mx-1.5!'>
                                     <ListItemIcon className='text-secondary!'>
                                         {item.name == "ARTISTS" ? <Man /> : item.name == "ARTWORKS" ? <Palette /> : <ViewTimeline />}
                                     </ListItemIcon>
