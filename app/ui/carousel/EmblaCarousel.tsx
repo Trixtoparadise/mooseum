@@ -55,7 +55,7 @@ const EmblaCarousel = (props: PropType) => {
                         if (!loading) {
                             return (
                                 <div className='flex-[0_0_var(--slide-size)] min-w-0 pl-(--slide-spacing)' key={index}>
-                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center h-(--slide-height)'>
+                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center rounded-md h-(--slide-height)'>
                                         <Image 
                                             src={URL}
                                             width={500}
