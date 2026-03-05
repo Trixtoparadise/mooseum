@@ -11,10 +11,13 @@ import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 type PropType = {
     slides: string[]
     options?: EmblaOptionsType
+    width: number
+    height: number
+    carouselHeight: number
 }
 
 const EmblaCarousel = (props: PropType) => {
-    const { slides, options } = props;
+    const { slides, options, width, height, carouselHeight } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ delay: 3000})]);
 
     const bgColors = slides.map((URL, index) => {
@@ -46,7 +49,7 @@ const EmblaCarousel = (props: PropType) => {
     }, [emblaApi])
 
     return (
-        <section className='max-w-xl mx-auto [--slide-height:30rem] [--slide-spacing:1rem] [--slide-size:100%]'>
+        <section className={`max-w-xl mx-auto [--slide-height:${carouselHeight}rem] [--slide-spacing:1rem] [--slide-size:100%]`}>
             <div className='overflow-hidden rounded-md' ref={emblaRef}>
                 <div className='flex touch-pan-y touch-pinch-zoom ml-[calc(var(--slide-spacing)*-1)]'>
                     {slides.map((URL, index) => {
@@ -58,8 +61,8 @@ const EmblaCarousel = (props: PropType) => {
                                     <div style={{ backgroundColor: data }} className='flex items-center justify-center rounded-md h-(--slide-height)'>
                                         <Image 
                                             src={URL}
-                                            width={500}
-                                            height={500}
+                                            width={width}
+                                            height={height}
                                             alt='carousel_picture'
                                             className='rounded-sm'
                                         />
@@ -90,7 +93,7 @@ const EmblaCarousel = (props: PropType) => {
                 </div>
             </div>
 
-            <div className='flex justify-center gap-[1.4rem] mt-1'>
+            <div className='flex justify-center gap-[1.4rem] mt-4'>
                 <div className='flex flex-wrap justify-center items-center'>
                     {scrollSnaps.map((_, index) => (
                         <DotButton 
