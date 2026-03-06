@@ -26,7 +26,7 @@ export default function Page() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </p>
-          <div className='flex justify-center'>
+          <div className='flex justify-center my-5'>
             <Stack spacing={4} direction="row">
               <Button 
                 variant='contained'

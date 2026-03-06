@@ -80,8 +80,8 @@ const EmblaCarousel = (props: PropType) => {
                                     <div style={{ backgroundColor: data }} className='flex items-center justify-center h-(--slide-height)'>
                                         <Image 
                                             src={URL}
-                                            width={500}
-                                            height={500}
+                                            width={height}
+                                            height={height}
                                             alt='carousel_picture'
                                             className='rounded-sm'
                                         />
