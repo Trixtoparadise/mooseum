@@ -11,15 +11,13 @@ import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 type PropType = {
     slides: string[]
     options?: EmblaOptionsType
-    width: number
-    height: number
 }
 
 const EmblaCarousel = (props: PropType) => {
-    const { slides, options, width, height } = props;
+    const { slides, options } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ delay: 3000})]);
 
-    const bgColors = slides.map((URL, index) => {
+    const bgColors = slides.map((URL) => {
         return useColor(URL, 'hex', {
             crossOrigin: 'anonymous',
             quality: 10
@@ -60,8 +58,8 @@ const EmblaCarousel = (props: PropType) => {
                                     <div style={{ backgroundColor: data }} className='flex items-center justify-center rounded-md h-(--slide-height)'>
                                         <Image 
                                             src={URL}
-                                            width={width}
-                                            height={height}
+                                            width={500}
+                                            height={500}
                                             alt='carousel_picture'
                                             className='rounded-sm'
                                         />
@@ -79,8 +77,8 @@ const EmblaCarousel = (props: PropType) => {
                                     <div style={{ backgroundColor: data }} className='flex items-center justify-center h-(--slide-height)'>
                                         <Image 
                                             src={URL}
-                                            width={height}
-                                            height={height}
+                                            width={500}
+                                            height={500}
                                             alt='carousel_picture'
                                             className='rounded-sm'
                                         />

@@ -47,8 +47,6 @@ export default function Page() {
           <EmblaCarousel 
             slides={images} 
             options={OPTIONS}
-            width={500}
-            height={500}
           />
         </div>
       </div>
@@ -66,8 +64,6 @@ export default function Page() {
           <EmblaCarousel 
             slides={images} 
             options={OPTIONS} 
-            width={360}
-            height={360}
           />
         </div>
         <div className='flex justify-center mt-3 mb-5'>
