@@ -49,7 +49,6 @@ export default function Page() {
             options={OPTIONS}
             width={500}
             height={500}
-            carouselHeight={30} 
           />
         </div>
       </div>
@@ -69,7 +68,6 @@ export default function Page() {
             options={OPTIONS} 
             width={360}
             height={360}
-            carouselHeight={20}
           />
         </div>
         <div className='flex justify-center mt-3 mb-5'>

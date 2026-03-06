@@ -13,11 +13,10 @@ type PropType = {
     options?: EmblaOptionsType
     width: number
     height: number
-    carouselHeight: number
 }
 
 const EmblaCarousel = (props: PropType) => {
-    const { slides, options, width, height, carouselHeight } = props;
+    const { slides, options, width, height } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ delay: 3000})]);
 
     const bgColors = slides.map((URL, index) => {
@@ -47,9 +46,9 @@ const EmblaCarousel = (props: PropType) => {
         emblaApi.reInit();
         autoplay.play();
     }, [emblaApi])
-
+    
     return (
-        <section className={`max-w-xl mx-auto [--slide-height:${carouselHeight}rem] [--slide-spacing:1rem] [--slide-size:100%]`}>
+        <section className={`max-w-xl mx-auto [--slide-height:30rem] [--slide-spacing:1rem] [--slide-size:100%]`}>
             <div className='overflow-hidden rounded-md' ref={emblaRef}>
                 <div className='flex touch-pan-y touch-pinch-zoom ml-[calc(var(--slide-spacing)*-1)]'>
                     {slides.map((URL, index) => {
