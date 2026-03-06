@@ -55,7 +55,7 @@ const EmblaCarousel = (props: PropType) => {
                         if (!loading) {
                             return (
                                 <div className='flex-[0_0_var(--slide-size)] min-w-0 pl-(--slide-spacing)' key={index}>
-                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center rounded-md sm:h-(--slide-height) h-[20rem]'>
+                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center rounded-md sm:h-(--slide-height) h-80'>
                                         <Image 
                                             src={URL}
                                             width={500}
@@ -74,7 +74,7 @@ const EmblaCarousel = (props: PropType) => {
                                     animation="wave"
                                     key={index}
                                 >
-                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center sm:h-(--slide-height) h-[20rem]'>
+                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center sm:h-(--slide-height) h-80'>
                                         <Image 
                                             src={URL}
                                             width={500}
