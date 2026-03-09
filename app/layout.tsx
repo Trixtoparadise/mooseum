@@ -34,15 +34,15 @@ export default function DashboardLayout({
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>
-        <body className=''>
+        <body>
           <AppRouterCacheProvider
             options={{ key: 'css'}}
           >
             <header className='bg-primary text-secondary bg-pixel-grid'>
                 <Navbar />
             </header>
-            <div className="flex justify-center min-h-screen bg-hero">
-              <main className=''>{children}</main>
+            <div className="min-h-screen bg-hero">
+              <main className="grow flex">{children}</main>
             </div>
             <Footer />
           </AppRouterCacheProvider>

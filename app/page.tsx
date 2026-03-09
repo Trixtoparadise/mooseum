@@ -15,8 +15,8 @@ export default function Page() {
   const OPTIONS: EmblaOptionsType = { loop: true }
 
   return (
-    <>
-      <div className='hidden sm:flex gap-x-10 md:gap-x-20 items-center justify-center mx-10 mt-25 mb-10'>
+    <div className='flex grow justify-center'>
+      <div className='hidden sm:flex gap-x-10 md:gap-x-20 items-center sm:justify-center mx-10 mt-25 mb-10'>
         <div className='md:max-w-md -mt-10'>
           <h1 className=' text-center align-middle font-sans font-bold text-[4rem]! md:text-[5.15rem]!  text-primary text-base/14 md:text-base/16! mb-8'>
             EXPLORE THE REALM OF INTERESTING IMAGINATIONS
@@ -82,6 +82,6 @@ export default function Page() {
           </Stack>
         </div>
       </div>
-    </>
+    </div>
   )
 }
