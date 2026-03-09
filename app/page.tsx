@@ -23,8 +23,8 @@ export default function Page() {
             EXPLORE THE REALM OF INTERESTING IMAGINATIONS
           </h1>
           <p className='text-center align-middle font-mono md:text-[0.9rem] mb-5 text-primary font-light'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+            Read about your favourite artist, discover new artworks and educate your self about
+            movements spanning almost a millenium.
           </p>
           <div className='flex justify-center my-10'>
             <Stack spacing={4} direction="row">
@@ -56,8 +56,8 @@ export default function Page() {
             EXPLORE THE REALM OF INTERESTING IMAGINATIONS
           </h1>
           <p className='text-center align-middle font-mono text-[1rem] mb-8 text-primary font-light'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+            Read about your favourite artist, discover new artworks and 
+            educate your self about movements spanning almost a millenium.
           </p>
         </div>
         <div className='my-2'>
