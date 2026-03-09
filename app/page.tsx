@@ -50,7 +50,7 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className='sm:hidden justify-center mx-6 mt-25'>
+      <div className='sm:hidden justify-center mx-6 mt-25 mb-10'>
         <div className='-mt-17'>
           <h1 className=' text-center align-middle font-sans font-bold text-[3rem]! text-primary text-base/12! mb-6'>
             EXPLORE THE REALM OF INTERESTING IMAGINATIONS
@@ -66,7 +66,7 @@ export default function Page() {
             options={OPTIONS} 
           />
         </div>
-        <div className='flex justify-center mt-3 mb-5'>
+        <div className='flex justify-center mt-3'>
           <Stack spacing={4} direction="row">
             <Button 
               variant='contained'

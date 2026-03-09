@@ -90,7 +90,7 @@ const EmblaCarousel = (props: PropType) => {
                 </div>
             </div>
 
-            <div className='flex justify-center gap-[1.4rem] mt-4'>
+            <div className='flex justify-center gap-[1.4rem] mt-4 mb-8'>
                 <div className='flex flex-wrap justify-center items-center'>
                     {scrollSnaps.map((_, index) => (
                         <DotButton 
