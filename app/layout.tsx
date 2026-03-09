@@ -41,7 +41,7 @@ export default function DashboardLayout({
             <header className='bg-primary text-secondary bg-pixel-grid'>
                 <Navbar />
             </header>
-            <div className="flex justify-center min-h-screen bg-radial-[at_25%_25%] from-white to-primary/20">
+            <div className="flex justify-center min-h-screen bg-hero">
               <main className=''>{children}</main>
             </div>
             <Footer />
