@@ -6,11 +6,10 @@ import { EmblaOptionsType } from 'embla-carousel';
 
 export default function Page() {
   const images : string[] = [
-    "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1772443386/Impression_Sunrise_ryao7n.jpg",
-    "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1772443385/Bedroom_in_Arles_dbv1wu.jpg",
-    "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1772443389/Constellations_series_zruyoe.jpg",
-    "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1772527132/Sunflower_Quilting_Bee_at_Arles_twbyvs.jpg",
-    "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1772443412/The_Artist_s_Garden_at_Eragny_ooirg6.jpg"
+    'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1773058389/Basquiat-Warhol-Taxi-45th-Broadway_e7dfin.jpg',
+    'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1773058390/A_Friend_in_Need_1903_C.M.Coolidge_ni4mh1.jpg',
+    'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1773058390/WouldYouTradeTomorrowForOneMoreYesterday_s7qjl5.webp',
+    'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1773058389/morons_babpeb.jpg',
   ]
 
   const OPTIONS: EmblaOptionsType = { loop: true }
@@ -56,7 +55,7 @@ export default function Page() {
             EXPLORE THE REALM OF INTERESTING IMAGINATIONS
           </h1>
           <p className='text-center align-middle font-mono text-[1rem] mb-8 text-primary font-light'>
-            Read about your favourite artist, discover new artworks and 
+            Read about your favourite artists, discover new artworks and 
             educate your self about movements spanning almost a millenium.
           </p>
         </div>
