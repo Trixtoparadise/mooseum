@@ -5,7 +5,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useColor } from 'color-thief-react';
-import { DotButton, useDotButton } from './EmblaCarouselDotButton';
+import { DotButton, useDotButton } from './CarouselDotButton';
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 
 type PropType = {
@@ -13,7 +13,7 @@ type PropType = {
     options?: EmblaOptionsType
 }
 
-const EmblaCarousel = (props: PropType) => {
+const Carousel = (props: PropType) => {
     const { slides, options } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ delay: 3000})]);
 
@@ -112,4 +112,4 @@ const EmblaCarousel = (props: PropType) => {
 
 }
 
-export default EmblaCarousel
+export default Carousel
