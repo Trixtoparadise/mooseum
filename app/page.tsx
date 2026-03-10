@@ -1,5 +1,4 @@
 'use client';
-import * as React from 'react';
 import Carousel from './ui/carousel/Carousel';
 import { Button, Stack } from '@mui/material';
 import { EmblaOptionsType } from 'embla-carousel';
