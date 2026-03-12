@@ -25,9 +25,9 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                 <div>
                     <Paper
                         component="form"
-                        className='px-1! flex! items-center! w-75! bg-primary/20!'
+                        className='px-1! flex! items-center! w-80! bg-primary/20!'
                     >
-                        <SearchIcon className='m-2.5! text-shade!' aria-label="search" />
+                        <SearchIcon className='m-2! text-shade!' aria-label="search" />
                         <InputBase
                             value={value}
                             {...bindFocus(popupState)}
@@ -38,7 +38,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                         />
                         <IconButton 
                             type="button" 
-                            className='p-2.5! text-shade!' 
+                            className='p-2! text-shade!' 
                             aria-label="clear" 
                             onClick={() => setValue("")}
                         >
@@ -49,7 +49,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                         {({ TransitionProps }) => { 
                             return (
                                 <Fade {...TransitionProps} timeout={300}>
-                                    <Paper className='w-75! max-h-80 overflow-y-scroll mt-3 bg-primary/20! '>
+                                    <Paper className='w-80! max-h-80 overflow-y-scroll mt-3 bg-primary/20! '>
                                         {searchList?.map((item, index) => {
                                             const film = item.name;
 

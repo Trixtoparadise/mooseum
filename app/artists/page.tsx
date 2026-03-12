@@ -38,7 +38,7 @@ export default function Artists () {
     }, [])
     
     return (
-        <div className="my-10 mx-19">
+        <div className="flex grow justify-center sm:justify-start my-6 sm:my-10 sm:mx-19">
             <SearchBar 
                 searchItem="artist" 
                 searchList={artists}
