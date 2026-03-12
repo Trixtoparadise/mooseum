@@ -1,6 +1,5 @@
 'use client';
-import * as React from 'react';
-import EmblaCarousel from './ui/carousel/EmblaCarousel';
+import Carousel from './ui/carousel/Carousel';
 import { Button, Stack } from '@mui/material';
 import { EmblaOptionsType } from 'embla-carousel';
 
@@ -43,7 +42,7 @@ export default function Page() {
           </div>
         </div>
         <div className='min-w-3xs'>
-          <EmblaCarousel 
+          <Carousel 
             slides={images} 
             options={OPTIONS}
           />
@@ -60,7 +59,7 @@ export default function Page() {
           </p>
         </div>
         <div className='my-2'>
-          <EmblaCarousel 
+          <Carousel 
             slides={images} 
             options={OPTIONS} 
           />

@@ -35,11 +35,11 @@ export default function DashboardLayout({
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="icon" href='/favicon.ico' sizes='any' />
         </head>
-        <body>
+        <body className="bg-pixel-grid">
           <AppRouterCacheProvider
             options={{ key: 'css'}}
           >
-            <header className='bg-primary text-secondary bg-pixel-grid'>
+            <header className='bg-primary text-secondary medium'>
                 <Navbar />
             </header>
             <div className="min-h-screen bg-hero">
