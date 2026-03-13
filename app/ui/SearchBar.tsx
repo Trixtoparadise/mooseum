@@ -3,7 +3,7 @@ import * as React from 'react';
 import ClearIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import PopupState, { bindPopper, bindFocus } from 'material-ui-popup-state';
-import { Box, Fade, IconButton, InputBase, Paper, Popper  } from '@mui/material';
+import { Backdrop, Box, Fade, IconButton, InputBase, Paper, Popper } from '@mui/material';
 
 interface SearchableItem {
     name: string;
@@ -18,14 +18,20 @@ type PropType<T extends SearchableItem> = {
 export default function SearchBar<T extends SearchableItem>(props: PropType<T>) {
     const { searchItem, searchList } = props;
     const [value, setValue] = React.useState<string>("");
-    
+
     return (
         <PopupState variant='popper' popupId='demo-popup-popper'>
             {(popupState) => (
                 <div>
+                    <Backdrop
+                        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+                        open={popupState.isOpen}
+                        onClick={popupState.close}
+                    />
                     <Paper
                         component="form"
-                        className='px-1! flex! items-center! w-80! bg-primary/20!'
+                        className='relative! z-1300! px-1! flex! items-center! w-80! bg-searchBg!'
+                        sx={{ position: 'relative', zIndex: (theme) => theme.zIndex.drawer + 2 }}
                     >
                         <SearchIcon className='m-2! text-shade!' aria-label="search" />
                         <InputBase
@@ -45,21 +51,23 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                             <ClearIcon />
                         </IconButton>
                     </Paper>
-                    <Popper {...bindPopper(popupState)} transition>
+                    <Popper {...bindPopper(popupState)} transition style={{ zIndex: 1300 }}>
                         {({ TransitionProps }) => { 
                             return (
                                 <Fade {...TransitionProps} timeout={300}>
-                                    <Paper className='w-80! max-h-80 overflow-y-scroll mt-3 bg-primary/20! '>
-                                        {searchList?.map((item, index) => {
+                                    <Paper className='relative! w-80! max-h-80 overflow-y-scroll mt-3 bg-searchBg!'>
+                                        {searchList?.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
                                             const film = item.name;
 
                                             if (!value || value.trim().length < 1) {
                                                     return (
                                                         <Box 
                                                             key={index}
-                                                            className='my-0.5! px-4! hover:bg-primary/20 transition-all duration-200 items-center!'
-                                                            onClick={() => setValue(item.name)}
-                                                            {...bindPopper(popupState)}
+                                                            className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200 items-center!'
+                                                            onClick={() => {
+                                                                setValue(item.name);
+                                                                popupState.close();
+                                                            }} 
                                                         >
                                                             <p className='select-none py-2.5 text-shade!'>
                                                                 {film}
@@ -80,9 +88,11 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                                                 return (
                                                     <Box 
                                                         key={index}
-                                                        className='my-0.5! px-4! hover:bg-primary/20 transition-all duration-200'
-                                                        onClick={() => setValue(item.title)}
-                                                        {...bindPopper(popupState)}
+                                                        className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200'
+                                                        onClick={() => {
+                                                            setValue(item.name);
+                                                            popupState.close();
+                                                        }} 
                                                     >
                                                         <p key={index} className='select-none py-2.5 text-shade!'>
                                                             {leftText + keyWord + rightText}
@@ -96,6 +106,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                             )
                         }}
                     </Popper>
+
                 </div>
             )}
         </PopupState>
