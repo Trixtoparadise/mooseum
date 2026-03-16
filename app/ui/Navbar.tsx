@@ -36,7 +36,9 @@ export default function Navbar () {
                         }
                     }
                 }}
+                className='relative! z-1300!'
                 onClose={toggleDrawer(false)}
+                sx={{ position: 'relative', zIndex: (theme) => theme.zIndex.drawer + 2 }}
             >
                 <Box className="w-70!" role="presentation" onClick={toggleDrawer(false)}>
                     <List>

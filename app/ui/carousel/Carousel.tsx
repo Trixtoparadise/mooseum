@@ -69,7 +69,7 @@ const Carousel = (props: PropType) => {
                         } else {
                             return (
                                 <Skeleton 
-                                    className='flex-[0_0_var(--slide-size)]! min-w-0 pl-(--slide-spacing)! bg-purple-200!'
+                                    className='flex-[0_0_var(--slide-size)]! min-w-0 pl-(--slide-spacing)! bg-primary/20!'
                                     variant="rounded" 
                                     animation="wave"
                                     key={index}
