@@ -30,7 +30,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                     />
                     <Paper
                         component="form"
-                        className='relative! z-1300! px-1! flex! items-center! w-80! bg-searchBg!'
+                        className='relative! z-1300! px-1! flex! items-center! sm:w-80! w-full! bg-searchBg!'
                         sx={{ position: 'relative', zIndex: (theme) => theme.zIndex.drawer + 2 }}
                     >
                         <SearchIcon className='m-2! text-shade!' aria-label="search" />
@@ -55,7 +55,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                         {({ TransitionProps }) => { 
                             return (
                                 <Fade {...TransitionProps} timeout={300}>
-                                    <Paper className='relative! w-80! max-h-80 overflow-y-scroll mt-3 bg-searchBg!'>
+                                    <Paper className='relative! sm:w-80! w-full! max-h-80 overflow-y-scroll mt-3 bg-searchBg!'>
                                         {searchList?.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
                                             const film = item.name;
 
