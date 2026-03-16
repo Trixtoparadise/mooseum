@@ -28,7 +28,7 @@ export default function ArtistAvatar(props : PropType) {
                         alignItems: "center",
                     }}
                 >
-                    {imageUrl.length == 0 ? 
+                    {!imageUrl ? 
                         (
                             <Skeleton variant="circular" animation="wave">
                                 <Avatar 

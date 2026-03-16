@@ -42,7 +42,7 @@ export default function Artists () {
     }, []);
     
     return (
-        <div className="flex-1 sm:justify-start mt-6 sm:my-10 mx-10 sm:mx-19">
+        <div className="flex-1 sm:justify-start mt-6 sm:my-10 mx-4 sm:mx-19">
             <div className='sm:mb-15 mb-8 justify-center'>
                 <SearchBar 
                     searchItem="artist" 
