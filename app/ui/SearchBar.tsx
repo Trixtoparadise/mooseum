@@ -55,7 +55,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                         {({ TransitionProps }) => { 
                             return (
                                 <Fade {...TransitionProps} timeout={300}>
-                                    <Paper className='relative! sm:w-80! w-full! max-h-80 overflow-y-scroll mt-3 bg-searchBg!'>
+                                    <Paper className='relative! max-h-80 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg!'>
                                         {searchList?.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
                                             const film = item.name;
 
