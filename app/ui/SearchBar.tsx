@@ -51,7 +51,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                             <ClearIcon />
                         </IconButton>
                     </Paper>
-                    <Popper {...bindPopper(popupState)} transition style={{ zIndex: 1300 }}>
+                    <Popper {...bindPopper(popupState)} transition style={{ zIndex: 1300 }} className='sm:w-80! w-full!'>
                         {({ TransitionProps }) => { 
                             return (
                                 <Fade {...TransitionProps} timeout={300}>
