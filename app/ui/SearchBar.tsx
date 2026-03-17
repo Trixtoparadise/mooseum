@@ -51,13 +51,17 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                             <ClearIcon />
                         </IconButton>
                     </Paper>
-                    <Popper {...bindPopper(popupState)} transition style={{ zIndex: 1300 }} className='sm:w-80! w-full!'>
+                    <Popper 
+                        {...bindPopper(popupState)} 
+                        transition style={{ zIndex: 1300 }} 
+                        className='sm:w-80! w-full!'
+                    >
                         {({ TransitionProps }) => { 
                             return (
                                 <Fade {...TransitionProps} timeout={300}>
                                     <Paper className='relative! max-h-80 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg!'>
                                         {searchList?.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
-                                            const film = item.name;
+                                            const artist = item.name;
 
                                             if (!value || value.trim().length < 1) {
                                                     return (
@@ -70,17 +74,17 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                                                             }} 
                                                         >
                                                             <p className='select-none py-2.5 text-shade!'>
-                                                                {film}
+                                                                {artist}
                                                             </p>
                                                         </Box>
                                                     )
                                             }
 
-                                            const indx = film.toLowerCase().indexOf(value.toLowerCase());
+                                            const indx = artist.toLowerCase().indexOf(value.toLowerCase());
                                             const length = value.length;
-                                            let leftText = film.substring(0, indx);
-                                            let keyWord = film.substring(indx, indx + length);
-                                            let rightText = film.substring(indx + length);
+                                            let leftText = artist.substring(0, indx);
+                                            let keyWord = artist.substring(indx, indx + length);
+                                            let rightText = artist.substring(indx + length);
 
                                             if (indx < 0) {
                                                 return null;
