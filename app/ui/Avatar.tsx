@@ -28,22 +28,16 @@ export default function ArtistAvatar(props : PropType) {
                         alignItems: "center",
                     }}
                 >
-                    {!imageUrl ? 
-                        (
-                            <Skeleton variant="circular" animation="wave">
-                                <Avatar 
-                                    alt={name}
-                                    src={imageUrl}
-                                    className="sm:w-13.5! w-11! sm:h-13.5! h-11! border-2! border-shade!"
-                                />
-                            </Skeleton>
-                        ) :
+                    {imageUrl.length != 0 ? 
                         (
                             <Avatar 
                                 alt={name}
                                 src={imageUrl}
                                 className="sm:w-13.5! w-11! sm:h-13.5! h-11! border-2! border-shade!"
                             />
+                        ) :
+                        (
+                            <Skeleton variant="circular" animation="wave" className="sm:w-13.5! w-11! sm:h-13.5! h-11!"/>
                         )
                     }
                     <Stack className="text-start!">
