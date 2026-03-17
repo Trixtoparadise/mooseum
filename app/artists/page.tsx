@@ -52,14 +52,7 @@ export default function Artists () {
             <div className='grid sm:max-h-full max-h-[78vh] sm:overflow-y-hidden overflow-y-scroll grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
                 {isLoading
                     ? Array.from({ length:57 }).map((_, index) => (
-                        <Skeleton key={index} variant='rounded' className='bg-primary/20!' animation='wave'>
-                            <ArtistAvatar
-                                name="John Doe"
-                                years="c. 0000-present"
-                                nationality="South African"
-                                imageUrl=""
-                            />
-                        </Skeleton>
+                        <Skeleton key={index} variant='rounded' className='flex grow sm:h-16! h-13.5! bg-primary/20!' animation='wave' />
                       ))
                     : artists.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
                         return (
