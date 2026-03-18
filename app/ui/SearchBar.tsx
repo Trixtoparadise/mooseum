@@ -3,7 +3,7 @@ import * as React from 'react';
 import ClearIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import PopupState, { bindPopper, bindFocus } from 'material-ui-popup-state';
-import { Backdrop, Box, Fade, IconButton, InputBase, Paper, Popper } from '@mui/material';
+import { Backdrop, Box, Fade, IconButton, InputBase, Paper, Popper, Typography } from '@mui/material';
 
 interface SearchableItem {
     name: string;
@@ -18,6 +18,26 @@ type PropType<T extends SearchableItem> = {
 export default function SearchBar<T extends SearchableItem>(props: PropType<T>) {
     const { searchItem, searchList } = props;
     const [value, setValue] = React.useState<string>("");
+
+    const filteredList = React.useMemo(() => {
+        const list = searchList ?? [];
+        const sorted = [...list].sort((a, b) => a.name.localeCompare(b.name));
+
+        if (!value.trim()) return sorted;
+
+        return sorted.filter(item => 
+            item.name.toLowerCase().includes(value.toLowerCase())
+        );
+    }, [searchList, value]);
+
+    const groupedList = React.useMemo(() => {
+        return filteredList.reduce((acc, item) => {
+            const char = item.name.charAt(0).toUpperCase();
+            if (!acc[char]) acc[char] = [];
+            acc[char].push(item);
+            return acc;
+        }, {} as Record<string, T[]>);
+    }, [filteredList]);
 
     return (
         <PopupState variant='popper' popupId='demo-popup-popper'>
@@ -56,61 +76,51 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                         transition style={{ zIndex: 1300 }} 
                         className='sm:w-80! w-full!'
                     >
-                        {({ TransitionProps }) => { 
-                            return (
+                        {({ TransitionProps }) => ( 
                                 <Fade {...TransitionProps} timeout={300}>
                                     <Paper className='relative! max-h-80 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg!'>
-                                        {searchList?.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
-                                            const artist = item.name;
+                                        {Object.entries(groupedList).map(([letter, items]) => (
+                                          <Box key={letter}>
+                                            <Typography className='px-4! py-1! text-xl! font-bold! font-sans! small bg-primary! text-secondary! uppercase sticky top-0 z-10'>
+                                                {letter}
+                                            </Typography>
 
-                                            if (!value || value.trim().length < 1) {
-                                                    return (
-                                                        <Box 
-                                                            key={index}
-                                                            className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200 items-center!'
-                                                            onClick={() => {
-                                                                setValue(item.name);
-                                                                popupState.close();
-                                                            }} 
-                                                        >
-                                                            <p className='select-none py-2.5 text-shade!'>
-                                                                {artist}
-                                                            </p>
-                                                        </Box>
-                                                    )
-                                            }
+                                            {items.map((item, index) => {
+                                                const artist = item.name;
+                                                const indx = artist.toLowerCase().indexOf(value.toLowerCase());
+                                                const length = value.length;
+                                                
+                                                const leftText = artist.substring(0, indx);
+                                                const keyWord = artist.substring(indx, indx + length);
+                                                const rightText = artist.substring(indx + length);
 
-                                            const indx = artist.toLowerCase().indexOf(value.toLowerCase());
-                                            const length = value.length;
-                                            let leftText = artist.substring(0, indx);
-                                            let keyWord = artist.substring(indx, indx + length);
-                                            let rightText = artist.substring(indx + length);
-
-                                            if (indx < 0) {
-                                                return null;
-                                            } else {
                                                 return (
                                                     <Box 
-                                                        key={index}
+                                                        key={`${letter}-${index}`}
                                                         className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200'
                                                         onClick={() => {
                                                             setValue(item.name);
                                                             popupState.close();
                                                         }} 
                                                     >
-                                                        <p key={index} className='select-none py-2.5 text-shade!'>
-                                                            {leftText + keyWord + rightText}
+                                                        <p className='select-none py-2.5 text-shade!'>
+                                                            {indx >= 0 && value ? (
+                                                                <>
+                                                                    {leftText}
+                                                                    <span className="font-bold text-primary">{keyWord}</span>
+                                                                    {rightText}
+                                                                </>
+                                                            ) : artist}
                                                         </p>
                                                     </Box>
-                                                )
-                                            }
-                                        })}
+                                                );
+                                            })}
+                                          </Box>  
+                                        ))}
                                     </Paper>
                                 </Fade>
-                            )
-                        }}
+                            )}
                     </Popper>
-
                 </div>
             )}
         </PopupState>
