@@ -18,6 +18,19 @@ export default function Artists () {
     const [artists, setArtists] = React.useState<Artist[]>([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
+    const groupedArtists = React.useMemo(() => {
+        if (!artists) return {};
+
+        return [...artists]
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .reduce((acc, artist) => {
+                const char = artist.name.charAt(0).toUpperCase();
+                if (!acc[char]) acc[char] = [];
+                acc[char].push(artist);
+                return acc;
+            }, {} as Record<string, typeof artists>)
+    }, [artists]);
+
     React.useEffect(() => {
         async function getArtists () {
             const headersList = {
@@ -49,22 +62,34 @@ export default function Artists () {
                     searchList={artists}
                 />
             </div>
-            <div className='grid sm:max-h-full max-h-[78vh] sm:overflow-y-hidden overflow-y-scroll grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
-                {isLoading
-                    ? Array.from({ length:57 }).map((_, index) => (
-                        <Skeleton key={index} variant='rounded' className='flex grow sm:h-16! h-13.5! bg-primary/20!' animation='wave' />
-                      ))
-                    : artists.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
-                        return (
-                            <ArtistAvatar
-                                key={index}
-                                name={item.name}
-                                years={item.years}
-                                nationality={item.nationality}
-                                imageUrl={item.imageUrl}
-                            />
-                        )
-                })}
+            <div className='sm:max-h-full max-h-[78vh] sm:overflow-y-hidden overflow-y-scroll'>
+                {isLoading ? (
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3'>
+                        {Array.from({ length:57 }).map((_, index) => (
+                            <Skeleton key={index} variant='rounded' className='flex grow sm:h-16! h-13.5! bg-primary/20!' animation='wave' />
+                        ))}
+                    </div>
+                ) : (
+                    Object.entries(groupedArtists).map(([letter, items]) => (
+                        <div key={letter} className="mb-8">
+                            <div className="top-0 z-10 py-2 mb-4">
+                                <span className="text-4xl font-bold font-sans text-primary">{letter}</span>
+                            </div>
+
+                            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
+                                {items.map((item, index) => (
+                                    <ArtistAvatar
+                                        key={item.name + index}
+                                        name={item.name}
+                                        years={item.years}
+                                        nationality={item.nationality}
+                                        imageUrl={item.imageUrl}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     )
