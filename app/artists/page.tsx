@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ArtistAvatar from '../ui/Avatar';
 import SearchBar  from "../ui/SearchBar";
-import { Skeleton, Box, Stack } from '@mui/material';
+import { Skeleton } from '@mui/material';
 
 interface Artist {
   id: string;
@@ -77,9 +77,10 @@ export default function Artists () {
                             </div>
 
                             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
-                                {items.map((item, index) => (
+                                {items.map((item) => (
                                     <ArtistAvatar
-                                        key={item.name + index}
+                                        key={item.id}
+                                        id={item.id}
                                         name={item.name}
                                         years={item.years}
                                         nationality={item.nationality}
