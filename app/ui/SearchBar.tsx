@@ -103,7 +103,6 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                                                             key={`${letter}-${index}`}
                                                             className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200'
                                                             onClick={() => {
-                                                                setValue(item.name);
                                                                 popupState.close();
                                                             }} 
                                                         >
