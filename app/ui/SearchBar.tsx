@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import * as React from 'react';
 import ClearIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,6 +8,7 @@ import { Backdrop, Box, Fade, IconButton, InputBase, Paper, Popper, Typography }
 
 interface SearchableItem {
     name: string;
+    id: string;
     [key: string]: any;
 }
 
@@ -38,6 +40,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
             return acc;
         }, {} as Record<string, T[]>);
     }, [filteredList]);
+    console.log(Object.entries(groupedList))
 
     return (
         <PopupState variant='popper' popupId='demo-popup-popper'>
@@ -78,7 +81,7 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                     >
                         {({ TransitionProps }) => ( 
                                 <Fade {...TransitionProps} timeout={300}>
-                                    <Paper className='relative! max-h-80 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg!'>
+                                    <Paper className='relative! max-h-78 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg!'>
                                         {Object.entries(groupedList).map(([letter, items]) => (
                                           <Box key={letter}>
                                             <Typography className='px-4! py-1! text-xl! font-bold! font-sans! small bg-primary! text-secondary! uppercase sticky top-0 z-10'>
@@ -95,24 +98,26 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                                                 const rightText = artist.substring(indx + length);
 
                                                 return (
-                                                    <Box 
-                                                        key={`${letter}-${index}`}
-                                                        className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200'
-                                                        onClick={() => {
-                                                            setValue(item.name);
-                                                            popupState.close();
-                                                        }} 
-                                                    >
-                                                        <p className='select-none py-2.5 text-shade!'>
-                                                            {indx >= 0 && value ? (
-                                                                <>
-                                                                    {leftText}
-                                                                    <span className="font-bold text-primary">{keyWord}</span>
-                                                                    {rightText}
-                                                                </>
-                                                            ) : artist}
-                                                        </p>
-                                                    </Box>
+                                                    <Link key={index} href={`/${searchItem}s/${item.id}`}>
+                                                        <Box 
+                                                            key={`${letter}-${index}`}
+                                                            className='cursor-pointer! my-0.5! px-4! hover:bg-primary/20 transition-all duration-200'
+                                                            onClick={() => {
+                                                                setValue(item.name);
+                                                                popupState.close();
+                                                            }} 
+                                                        >
+                                                            <p className='select-none py-2.5 text-shade!'>
+                                                                {indx >= 0 && value ? (
+                                                                    <>
+                                                                        {leftText}
+                                                                        <span className="font-bold text-primary">{keyWord}</span>
+                                                                        {rightText}
+                                                                    </>
+                                                                ) : artist}
+                                                            </p>
+                                                        </Box>
+                                                    </Link>
                                                 );
                                             })}
                                           </Box>  
