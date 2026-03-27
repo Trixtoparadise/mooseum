@@ -42,7 +42,7 @@ export default function DashboardLayout({
             <header className='bg-primary text-secondary medium'>
                 <Navbar />
             </header>
-            <div className="min-h-screen bg-hero">
+            <div className="min-h-screen">
               <main className="grow flex">{children}</main>
             </div>
             <Footer />
