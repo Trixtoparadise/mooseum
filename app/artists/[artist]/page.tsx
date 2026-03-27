@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ImageMasonry from '@/app/ui/masonry';
+import ImageMasonry from '@/app/ui/Masonry';
 import { Suspense } from 'react';
 import { Skeleton } from '@mui/material';
 
