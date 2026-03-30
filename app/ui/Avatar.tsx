@@ -22,7 +22,7 @@ export default function ArtistAvatar(props : PropType) {
                     alignItems: "center",
                 }}    
             >
-                <Link href={`/artists/${id}`}>
+                <Link href={`/artists/${id}`} prefetch>
                     <Stack 
                         direction='row' 
                         gap={1}
