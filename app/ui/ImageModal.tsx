@@ -111,7 +111,7 @@ export default function BasicModal(props: PropType) {
                         />
                         <IconButton 
                             onClick={onClose} 
-                            className="mx-0! sm:mx-8! text-secondary! hover:bg-white/10! z-30! pointer-events-auto!"
+                            className="text-secondary! hover:bg-white/10! z-30! pointer-events-auto!"
                         >
                             <Close className="text-[1.5rem]! md:text-[2rem]! lg:text-[3rem]!" /> 
                         </IconButton>
