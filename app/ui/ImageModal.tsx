@@ -120,7 +120,7 @@ export default function BasicModal(props: PropType) {
                         direction="row"
                         alignItems="center"
                         justifyContent="space-between"
-                        className='w-full! h-full! -mt-25! px-2! md:px-5! pointer-events-auto!'
+                        className='w-full! h-full! mt-0! sm:-mt-25! px-2! md:px-5! pointer-events-auto!'
                         gap={{ sm: 2, md: 3, lg: 4 }}
                     >
                         <IconButton 
