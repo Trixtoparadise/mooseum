@@ -65,23 +65,16 @@ export default async function ArtistPage({
                 </h1>
                 <div className=' flex flex-col md:flex-row items-stretch gap-6'>
                     <div className='w-full md:w-1/3 lg:w-1/4 shrink-0 '>
-                        {Object.values(artistData).length != 0 ? 
-                            (
-                                <Image
-                                    src={artistData.imageUrl}
-                                    alt={artistData.name}
-                                    width={600}
-                                    height={400}
-                                    className='rounded-md h-full object-cover'
-                                />
-                            ) :
-                            (
-                                <Skeleton className='flex! grow! h-full! bg-primary/10!' variant='rounded' animation="wave"/>
-                            )
-                        }
+                        <Image
+                            src={artistData.imageUrl}
+                            alt={artistData.name}
+                            width={600}
+                            height={400}
+                            className='rounded-md h-full object-cover'
+                        />
                     </div>
 
-                    <div className='flex-1 flex flex-col gap-2 p-4 max-w-full sm:max-full md:max-w-3/4 lg:max-w-2/3 xl:max-w-1/2 2xl:max-w-1/3 bg-primary/10 rounded-md'>
+                    <div className='flex-1 flex flex-col gap-2 p-4 max-w-full sm:max-w-full md:max-w-3/4 lg:max-w-2/3 xl:max-w-1/2 2xl:max-w-1/3 bg-primary/10 rounded-md'>
                         <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mx-0 sm:mx-4'>
                             <p className='px-4 py-1 sm:py-3 text-primary rounded-sm overflow-hidden'>
                                 <strong className='block truncate font-sans text-[2rem] sm:text-4xl md:text-3xl lg:text-4xl font-bold -line-'>Name:</strong><br/>
