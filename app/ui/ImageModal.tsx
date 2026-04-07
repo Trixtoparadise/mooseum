@@ -132,7 +132,7 @@ export default function BasicModal(props: PropType) {
                         <Box 
                             {...handlers} 
                             mt={4} 
-                            className="w-full! md:w-[80%] lg:w-[55%]! max-h-[87vh] overflow-y-auto! border-none! px-6! py-10! rounded-lg! shadow-2xl! shadow-black/50! ring-2! ring-white/10!"
+                            className="w-full! md:w-[80%] lg:w-[55%]! max-h-[87vh] overflow-y-auto! border-none! rounded-lg! shadow-2xl! shadow-black/50! ring-2! ring-white/10!"
                         >
                             <AnimatePresence
                                 initial={false}
@@ -153,11 +153,11 @@ export default function BasicModal(props: PropType) {
                                     className='w-full h-full'
                                 >
                                     <Stack 
-                                        spacing={2}
-                                        className='flex! items-center! w-full! h-full!' 
                                         direction="column" 
+                                        className='w-full! h-full!'
+                                        justifyContent="space-between" 
                                     >
-                                        <div className='w-full'>
+                                        <div className='w-full overflow-y-auto grow scrollbar-hide'>
                                             <Image
                                                 src={currentItem.imageUrl}
                                                 alt={currentItem.title}
@@ -166,7 +166,7 @@ export default function BasicModal(props: PropType) {
                                                 className='rounded-md w-full h-auto object-cover select-none! pointer-events-none!'
                                             />
                                         </div>
-                                        <Stack className='flex! w-full'>
+                                        <Stack className='w-full sticky! bottom-0! bg-black/40! backdrop-blur-md! p-6! border-t! border-white/10! z-20 mt-auto!'>
                                             <div className='max-w-full'>
                                                 <p className='text-secondary/80 text-[1.1rem] font-medium mt-1 mb-4'>{currentItem.title} ({currentItem.year})</p>
                                                 <p className='text-secondary/80 text-[1rem] font-light mt-1 leading-relaxed text-justify mb-4 max-w-full xl:max-w-3/4'>
