@@ -48,7 +48,7 @@ export default function Navbar () {
                                     <ListItemIcon className='text-secondary!'>
                                         {item.name == "ARTISTS" ? <Man /> : item.name == "ARTWORKS" ? <Palette /> : <ViewTimeline />}
                                     </ListItemIcon>
-                                    <Link className='text-secondary text-[1.5rem] font-sans -ml-2!' href={item.path}>{item.name}</Link>
+                                    <Link className='text-secondary text-[1.5rem] font-sans -ml-4!' href={item.path}>{item.name}</Link>
                                 </ListItemButton>
                             </ListItem>
                         ))}
