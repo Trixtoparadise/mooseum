@@ -48,7 +48,7 @@ export default function Navbar () {
                                     <ListItemIcon className='text-secondary!'>
                                         {item.name == "ARTISTS" ? <Man /> : item.name == "ARTWORKS" ? <Palette /> : <ViewTimeline />}
                                     </ListItemIcon>
-                                    <Link className='text-secondary text-[1.5rem] font-sans -ml-4!' href={item.path}>{item.name}</Link>
+                                    <Link className='text-secondary text-[1.5rem] font-sans -ml-4!' href={item.path} prefetch>{item.name}</Link>
                                 </ListItemButton>
                             </ListItem>
                         ))}
@@ -73,7 +73,9 @@ export default function Navbar () {
                         {routes.map((item) => {
                             return (
                                 <li key={item.name}>
-                                    <Link href={item.path} 
+                                    <Link 
+                                        prefetch
+                                        href={item.path} 
                                         className='text-[1.6rem] text-text-onDark/85 hover:text-gray-200 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
                                     >
                                         {item.name}
