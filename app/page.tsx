@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import Carousel from './ui/carousel/Carousel';
 import { Button, Stack } from '@mui/material';
 import { EmblaOptionsType } from 'embla-carousel';
@@ -30,7 +31,9 @@ export default function Page() {
                 variant='contained'
                 className='bg-primary! font-sans! text-[1.4rem]! md:text-[1.5rem]! text-base/8! md:text-base/8! px-8! md:px-12! py-3!'
               >
-                A TRIP DOWN<br/>MEMORY LANE
+                <Link href="/timeline">
+                  A TRIP DOWN<br/>MEMORY LANE
+                </Link>
               </Button>
               <Button 
                 variant='contained'
@@ -70,7 +73,9 @@ export default function Page() {
               variant='contained'
               className='bg-primary! font-sans! text-[1.3rem]! text-base/8! px-6! py-3!'
             >
-              A TRIP DOWN MEMORY LANE
+              <Link href="/timeline">
+                A TRIP DOWN MEMORY LANE
+              </Link>
             </Button>
             <Button 
               variant='contained'
