@@ -1,65 +1,168 @@
+"use client";
+import * as React from 'react';
 import Image from "next/image";
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Modal from '@mui/material/Modal';
 import Typography from "@mui/material/Typography";
-import TimelineIcon from '@mui/icons-material/Timeline';
+import IconButton from '@mui/material/IconButton';
+import { Close } from '@mui/icons-material';
 import { Timeline, TimelineItem, timelineItemClasses, timelineContentClasses, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot } from "@mui/lab"
 
+interface ArtTimelineItem {
+	period: string;
+	title: string;
+	content: string;
+	artworks: {
+		url: string;
+		artist: string;
+		title: string;
+	}[];
+	featuredArtwork: {
+		url: string;
+		artist: string;
+		title: string;
+	};
+}
+
 export default function CustomisedTimeline () { 
-  
-  return (
-    <Timeline 
-        position="alternate"
-        sx={{
-            [`& .${timelineItemClasses.root}:before`]: {
-                flex: 0,
-                padding: 0,
-            },
-            [`& .${timelineItemClasses.root}:nth-of-type(even) .${timelineContentClasses.root}`]: {
-                textAlign: 'justify',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end'
-            },
-            [`& .${timelineItemClasses.root}:nth-of-type(odd) .${timelineContentClasses.root}`]: {
-                textAlign: 'justify',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start'
-            }
-        }}
-    >
-        {artTimelineData.reverse().map((item, index) => {
-            return (
-                <TimelineItem key={index}>
-                    <TimelineOppositeContent variant="body1" className="font-mono! text-primary my-auto!">
-                        {item.period}
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineConnector />
-                        <TimelineDot>
-                            <TimelineIcon />
-                        </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent className="flex-1! font-mono! text-primary py-3! px-4!">
-                        <Image 
-                          src={item.artworks[1].url}
-                          width={500}
-                          height={500}
-                          alt='carousel_picture'
-                          className='rounded-sm'
-                        />
-                        <Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
-                            {item.title}
-                        </Typography>
-                        <Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
-                            {item.content}
-                        </Typography>
-                    </TimelineContent>
-                </TimelineItem>
-            )
-        })}
-    </Timeline>
-    )
+	const [isMounted, setIsMounted] = React.useState(false);
+	const [selectedItem, setSelectedItem] = React.useState<ArtTimelineItem | null>(null);
+
+	React.useEffect(() => {
+		setIsMounted(true);
+	}, [])
+
+	const randomisedData = React.useMemo((): ArtTimelineItem[] => {
+		return artTimelineData.map(item => {
+			const randomIndex = Math.floor(Math.random() * item.artworks.length);
+			
+			return {
+				...item,
+				featuredArtwork: item.artworks[randomIndex]
+			};
+		});
+	}, [isMounted]);
+
+	if (!isMounted) {
+		return null;
+	}
+
+	return (
+		<Timeline 
+			position="alternate"
+			sx={{
+				[`& .${timelineItemClasses.root}:before`]: {
+					flex: 0,
+					padding: 0,
+				},
+				[`& .${timelineItemClasses.root}:nth-of-type(even) .${timelineContentClasses.root}`]: {
+					textAlign: 'justify',
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'flex-end'
+				},
+				[`& .${timelineItemClasses.root}:nth-of-type(odd) .${timelineContentClasses.root}`]: {
+					textAlign: 'justify',
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'flex-start'
+				}
+			}}
+			className='mx-5! my-10!'
+		>
+			{randomisedData.toReversed().map((item, index) => {
+				return (
+					<TimelineItem key={index}>
+						<TimelineOppositeContent variant="body1" className="font-mono! text-primary my-auto!">
+							{item.period}
+						</TimelineOppositeContent>
+						<TimelineSeparator>
+							<TimelineConnector />
+							<TimelineDot>
+								<div className="w-6 h-6 bg-primary rounded-full" />
+							</TimelineDot>
+							<TimelineConnector />
+						</TimelineSeparator>
+						<TimelineContent className="flex-1! font-mono! text-primary py-3! px-4!">
+							<Image 
+								width={500}
+								height={500}
+								src={item.featuredArtwork.url}
+								className='rounded-sm cursor-pointer'
+								alt={item.featuredArtwork.title || item.title}
+								onClick={() => setSelectedItem(item)}
+							/>
+							<Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
+								{item.title}
+							</Typography>
+							<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
+								{item.content}
+							</Typography>
+						</TimelineContent>
+					</TimelineItem>
+				)
+			})}
+			<Modal
+				open={Boolean(selectedItem)}
+				onClose={() => setSelectedItem(null)}
+				className='bg-black/90! flex! items-center! justify-center!'
+			>
+				{selectedItem ? (
+					<Stack
+						direction="column"
+						justifyContent="space-between"
+						className='w-full! h-full! px-2! md:px-5! pointer-events-auto!' 
+					>
+						<IconButton 
+                            onClick={() => setSelectedItem(null)} 
+                            className="text-secondary! hover:bg-white/10! z-30! w-15! h-15! my-2! pointer-events-auto! mx-auto!"
+                        >
+                            <Close className="text-[1.5rem]! md:text-[2rem]! lg:text-[3rem]!" /> 
+                        </IconButton>
+						<Stack 
+							direction="row"
+							alignItems="center"
+							justifyContent="space-between"
+							className='w-full! h-full! -mt-10! sm:-mt-15! px-2! md:px-5! pointer-events-auto!'
+							gap={{ sm: 2, md: 3, lg: 4 }}
+						>
+							<Box 
+								mt={4} 
+								className="w-full! md:w-[80%] lg:w-[55%]! max-h-[87vh] overflow-y-auto! border-none! rounded-lg! shadow-2xl! shadow-black/50! ring-2! ring-white/10! mx-auto!"
+							>
+									<Stack 
+										direction="column" 
+										className='w-full! h-full!'
+										justifyContent="space-between" 
+									>
+										<div className='w-full overflow-y-auto grow scrollbar-hide'>
+											<Image
+												src={selectedItem.featuredArtwork.url}
+												alt={selectedItem.title}
+												width={1200}
+												height={800}
+												className='rounded-md w-full h-auto object-cover select-none! pointer-events-none!'
+											/>
+										</div>
+										<Stack className='w-full sticky! bottom-0! bg-black/40! backdrop-blur-md! p-6! border-t! border-white/10! z-20 mt-auto!'>
+											<div className='max-w-full'>
+												<p className='text-secondary/80 text-[1.1rem] font-medium mt-1 mb-4'>{selectedItem.featuredArtwork.title}</p>
+												<p className='text-secondary/80 text-[1rem] font-extralight mt-1 leading-relaxed italic'>
+													{selectedItem.featuredArtwork.artist || 'Unknown Artist'}
+												</p>
+											</div>
+										</Stack>
+									</Stack>
+							</Box>
+						</Stack>
+					</Stack>
+				) : (
+					<div />
+				)}
+			</Modal>
+		</Timeline>
+	)
 }
 
 const artTimelineData = [
