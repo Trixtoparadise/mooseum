@@ -28,7 +28,7 @@ type PropType = {
     initialIndex: number;
 }
 
-export default function BasicModal(props: PropType) {
+export default function ImageModal(props: PropType) {
     const { data, open, onClose, initialIndex } = props;
     const [direction, setDirection] = React.useState(0);
     const [index, setIndex] = React.useState<number>(initialIndex);

@@ -3,7 +3,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import Paper from '@mui/material/Paper';
-import BasicModal from '@/app/ui/ImageModal';
+import ImageModal from '@/app/ui/ImageModal';
 
 interface ArtworkData {
   id: string;
@@ -49,7 +49,7 @@ export default function ImageMasonry(props: PropType) {
                     </div>
                 ))}
             </Masonry>
-            <BasicModal 
+            <ImageModal 
                 data={data} 
                 open={toggleModal}
                 initialIndex={currentIndex}
