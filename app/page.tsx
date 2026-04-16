@@ -31,7 +31,7 @@ export default function Page() {
                 variant='contained'
                 className='bg-primary! font-sans! text-[1.4rem]! md:text-[1.5rem]! text-base/8! md:text-base/8! px-8! md:px-12! py-3!'
               >
-                <Link href="/timeline">
+                <Link href="/timeline#top">
                   A TRIP DOWN<br/>MEMORY LANE
                 </Link>
               </Button>
@@ -73,7 +73,7 @@ export default function Page() {
               variant='contained'
               className='bg-primary! font-sans! text-[1.3rem]! text-base/8! px-6! py-3!'
             >
-              <Link href="/timeline">
+              <Link href="/timeline#top">
                 A TRIP DOWN MEMORY LANE
               </Link>
             </Button>
