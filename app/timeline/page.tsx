@@ -181,7 +181,7 @@ export default function CustomisedTimeline () {
 								alt={item.featuredArtwork.title || item.title}
 								className='rounded-sm cursor-pointer'
 							/>
-							<Typography component="span"  className="flex! font-sans! font-semibold! text-primary text-[3rem]/12! my-5! text-start!">
+							<Typography component="span"  className="flex! font-sans! text-primary text-[3rem]/12! my-5! text-start!">
 								{item.title}
 							</Typography>
 							<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
