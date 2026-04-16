@@ -6,9 +6,26 @@ import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 import Typography from "@mui/material/Typography";
 import IconButton from '@mui/material/IconButton';
-import { useScroll, useSpring, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Close } from '@mui/icons-material';
-import { Timeline, TimelineItem, timelineItemClasses, timelineContentClasses, TimelineSeparator, TimelineConnector, TimelineConnectorClasses, TimelineContent, TimelineOppositeContent, TimelineDot } from "@mui/lab"
+import { useMediaQuery, useTheme } from '@mui/material';
+import { Timeline, TimelineItem, timelineItemClasses, timelineContentClasses, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot } from "@mui/lab"
+
+interface ArtTimelineItem {
+	period: string;
+	title: string;
+	content: string;
+	artworks: {
+		url: string;
+		artist: string;
+		title: string;
+	}[];
+	featuredArtwork: {
+		url: string;
+		artist: string;
+		title: string;
+	};
+}
 
 interface ArtTimelineItem {
 	period: string;
@@ -46,8 +63,12 @@ export default function CustomisedTimeline () {
 	const [isMounted, setIsMounted] = React.useState(false);
 	const [selectedItem, setSelectedItem] = React.useState<ArtTimelineItem | null>(null);
 
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
 	const AnimatedDot = motion(TimelineDot);
 	const AnimatedConnector = motion(TimelineConnector);
+ 	const AnimatedTimelineContent = motion(TimelineContent);
 
 	React.useEffect(() => {
 		setIsMounted(true);
@@ -70,40 +91,50 @@ export default function CustomisedTimeline () {
 
 	return (
 		<Timeline 
-			position="alternate"
+			position={isMobile ? "right" : "alternate"}
 			sx={{
-				[`& .${timelineItemClasses.root}:before`]: {
-					flex: 0,
-					padding: 0,
-				},
-				[`& .${timelineItemClasses.root}:nth-of-type(even) .${timelineContentClasses.root}`]: {
-					textAlign: 'justify',
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'flex-end'
-				},
-				[`& .${timelineItemClasses.root}:nth-of-type(odd) .${timelineContentClasses.root}`]: {
-					textAlign: 'justify',
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'flex-start'
+				'@media (min-width: 900px)': {
+					[`& .${timelineItemClasses.root}:before`]: {
+						flex: 0,
+						padding: 0,
+					},
+					[`& .${timelineItemClasses.root}:nth-of-type(even) .${timelineContentClasses.root}`]: {
+						textAlign: 'justify',
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'flex-end'
+					},
+					[`& .${timelineItemClasses.root}:nth-of-type(odd) .${timelineContentClasses.root}`]: {
+						textAlign: 'justify',
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'flex-start'
+					},
 				}
 			}}
-			className='mx-5! my-10!'
+			className='mx-0! sm:mx-5! my-10!'
 		>
 			{randomisedData.toReversed().map((item, index) => {
 				return (
 					<TimelineItem key={index}>
-						<TimelineOppositeContent variant="body1" className="font-mono! text-primary my-auto!">
+						<TimelineOppositeContent 
+							variant="body1" 
+							sx={{ display: { xs: 'none', md: 'block' } }}
+							className="font-mono! text-primary my-auto!"
+						>
 							{item.period}
 						</TimelineOppositeContent>
 						<TimelineSeparator>
-							<AnimatedConnector
-								initial={{ scaleY: 0 }}
-								whileInView={{ scaleY: 1 }}
-								transition={{ duration: 0.8, ease: "easeInOut" }}
-								className='origin-bottom! bg-primary!'
-							/>
+							<div className='relative! flex! flex-col! items-center! flex-1! w-full!'>
+								<div className='absolute! inset-0! bg-primary/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
+									<AnimatedConnector
+										initial={{ scaleY: 0 }}
+										viewport={{ once: false }}
+										whileInView={{ scaleY: 1 }}
+										transition={{ duration: 0.8, ease: "easeInOut" }}
+										className='origin-bottom! bg-primary! w-[0.08rem]! sm:w-[0.2rem]!'
+									/>
+							</div>
 							<AnimatedDot 
 								initial={{ backgroundColor: 'rgba(139, 93, 207, 0.4)' }}
 								whileInView={{ backgroundColor: "#8B5DCF" }}
@@ -114,42 +145,49 @@ export default function CustomisedTimeline () {
 								viewport={{ once: false }}
 								className='m-0!'
 							>
-								<div className="w-6 h-6 rounded-full" />
+								<div className="w-1.5 h-1.5 sm:w-5 sm:h-5 rounded-full" />
 							</AnimatedDot>
-							<AnimatedConnector
-								initial={{ scaleY: 0 }}
-								whileInView={{ scaleY: 1 }}
-								transition={{ duration: 0.8, ease: "easeInOut" }}
-								className='origin-top! bg-primary!'
-							/>
+							<div className='relative! flex! flex-col! items-center! flex-1! w-full!'>
+								<div className='absolute! inset-0! bg-primary/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
+									<AnimatedConnector
+										initial={{ scaleY: 0 }}
+										viewport={{ once: false }}
+										whileInView={{ scaleY: 1 }}
+										transition={{ duration: 0.8, ease: "easeInOut" }}
+										className='origin-top! bg-primary! w-[0.08rem]! sm:w-[0.2rem]!'
+									/>
+							</div>
+							
 						</TimelineSeparator>
-						<TimelineContent className="flex-1! font-mono! text-primary py-3! px-4!">
-							<motion.div
-								initial={{ opacity: 0 }}
-								whileInView={{ opacity: 1 }}
-								transition={{
-									duration: 0.6,
-									delay: 0.8,
-									ease: "easeOut"
-								}}
-								viewport={{ once: false, amount: 0.5 }}
-							>
-								<Image 
-									width={500}
-									height={500}
-									src={item.featuredArtwork.url}
-									className='rounded-sm cursor-pointer'
-									alt={item.featuredArtwork.title || item.title}
-									onClick={() => setSelectedItem(item)}
-								/>
-								<Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
-									{item.title}
-								</Typography>
-								<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
-									{item.content}
-								</Typography>
-							</motion.div>
-						</TimelineContent>
+						<AnimatedTimelineContent
+							className='flex-1! font-mono! text-primary py-3! px-4!'
+							initial={{ opacity: 0.3 }}
+							whileInView={{ opacity: 1 }}
+							transition={{
+								duration: 0.6,
+								delay: 0.8,
+								ease: "easeOut"
+							}}
+							viewport={{ once: false, amount: 0.5 }}
+						>
+							<Typography variant='h6' className='md:hidden! font-mono! text-primary/70! my-4! font-normal! sm:font-bold!'>
+								{item.period}
+							</Typography>
+							<Image 
+								width={500}
+								height={500}
+								src={item.featuredArtwork.url}
+								className='rounded-sm cursor-pointer'
+								alt={item.featuredArtwork.title || item.title}
+								onClick={() => setSelectedItem(item)}
+							/>
+							<Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
+								{item.title}
+							</Typography>
+							<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
+								{item.content}
+							</Typography>
+						</AnimatedTimelineContent>
 					</TimelineItem>
 				)
 			})}
@@ -165,11 +203,11 @@ export default function CustomisedTimeline () {
 						className='w-full! h-full! px-2! md:px-5! pointer-events-auto!' 
 					>
 						<IconButton 
-                            onClick={() => setSelectedItem(null)} 
-                            className="text-secondary! hover:bg-white/10! z-30! w-15! h-15! my-2! pointer-events-auto! mx-auto!"
-                        >
-                            <Close className="text-[1.5rem]! md:text-[2rem]! lg:text-[3rem]!" /> 
-                        </IconButton>
+                onClick={() => setSelectedItem(null)} 
+                className="text-secondary! hover:bg-white/10! z-30! w-15! h-15! my-2! pointer-events-auto! mx-auto!"
+            >
+                <Close className="text-[1.5rem]! md:text-[2rem]! lg:text-[3rem]!" /> 
+            </IconButton>
 						<Stack 
 							direction="row"
 							alignItems="center"
@@ -581,4 +619,3 @@ const artTimelineData = [
     dotColor: 'info',
   },
 ];
-
