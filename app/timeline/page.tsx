@@ -6,8 +6,25 @@ import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 import Typography from "@mui/material/Typography";
 import IconButton from '@mui/material/IconButton';
+import { useScroll, useSpring, motion } from "framer-motion";
 import { Close } from '@mui/icons-material';
-import { Timeline, TimelineItem, timelineItemClasses, timelineContentClasses, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot } from "@mui/lab"
+import { Timeline, TimelineItem, timelineItemClasses, timelineContentClasses, TimelineSeparator, TimelineConnector, TimelineConnectorClasses, TimelineContent, TimelineOppositeContent, TimelineDot } from "@mui/lab"
+
+interface ArtTimelineItem {
+	period: string;
+	title: string;
+	content: string;
+	artworks: {
+		url: string;
+		artist: string;
+		title: string;
+	}[];
+	featuredArtwork: {
+		url: string;
+		artist: string;
+		title: string;
+	};
+}
 
 interface ArtTimelineItem {
 	period: string;
@@ -28,6 +45,9 @@ interface ArtTimelineItem {
 export default function CustomisedTimeline () { 
 	const [isMounted, setIsMounted] = React.useState(false);
 	const [selectedItem, setSelectedItem] = React.useState<ArtTimelineItem | null>(null);
+
+	const AnimatedDot = motion(TimelineDot);
+	const AnimatedConnector = motion(TimelineConnector);
 
 	React.useEffect(() => {
 		setIsMounted(true);
@@ -78,27 +98,57 @@ export default function CustomisedTimeline () {
 							{item.period}
 						</TimelineOppositeContent>
 						<TimelineSeparator>
-							<TimelineConnector />
-							<TimelineDot>
-								<div className="w-6 h-6 bg-primary rounded-full" />
-							</TimelineDot>
-							<TimelineConnector />
+							<AnimatedConnector
+								initial={{ scaleY: 0 }}
+								whileInView={{ scaleY: 1 }}
+								transition={{ duration: 0.8, ease: "easeInOut" }}
+								className='origin-bottom! bg-primary!'
+							/>
+							<AnimatedDot 
+								initial={{ backgroundColor: 'rgba(139, 93, 207, 0.4)' }}
+								whileInView={{ backgroundColor: "#8B5DCF" }}
+								transition={{
+									delay: 0.6,
+									duration: 0.4
+								}}
+								viewport={{ once: false }}
+								className='m-0!'
+							>
+								<div className="w-6 h-6 rounded-full" />
+							</AnimatedDot>
+							<AnimatedConnector
+								initial={{ scaleY: 0 }}
+								whileInView={{ scaleY: 1 }}
+								transition={{ duration: 0.8, ease: "easeInOut" }}
+								className='origin-top! bg-primary!'
+							/>
 						</TimelineSeparator>
 						<TimelineContent className="flex-1! font-mono! text-primary py-3! px-4!">
-							<Image 
-								width={500}
-								height={500}
-								src={item.featuredArtwork.url}
-								className='rounded-sm cursor-pointer'
-								alt={item.featuredArtwork.title || item.title}
-								onClick={() => setSelectedItem(item)}
-							/>
-							<Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
-								{item.title}
-							</Typography>
-							<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
-								{item.content}
-							</Typography>
+							<motion.div
+								initial={{ opacity: 0 }}
+								whileInView={{ opacity: 1 }}
+								transition={{
+									duration: 0.6,
+									delay: 0.8,
+									ease: "easeOut"
+								}}
+								viewport={{ once: false, amount: 0.5 }}
+							>
+								<Image 
+									width={500}
+									height={500}
+									src={item.featuredArtwork.url}
+									className='rounded-sm cursor-pointer'
+									alt={item.featuredArtwork.title || item.title}
+									onClick={() => setSelectedItem(item)}
+								/>
+								<Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
+									{item.title}
+								</Typography>
+								<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
+									{item.content}
+								</Typography>
+							</motion.div>
 						</TimelineContent>
 					</TimelineItem>
 				)
