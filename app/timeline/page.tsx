@@ -131,7 +131,7 @@ export default function CustomisedTimeline () {
 										initial={{ scaleY: 0 }}
 										viewport={{ once: false }}
 										whileInView={{ scaleY: 1 }}
-										transition={{ duration: 0.8, ease: "easeOut" }}
+										transition={{ duration: 0.8, ease: "easeInOut" }}
 										className='origin-bottom! bg-primary! w-[0.08rem]! sm:w-[0.2rem]!'
 									/>
 							</div>
@@ -153,7 +153,7 @@ export default function CustomisedTimeline () {
 										initial={{ scaleY: 0 }}
 										viewport={{ once: false }}
 										whileInView={{ scaleY: 1 }}
-										transition={{ duration: 0.8, ease: "easeOut" }}
+										transition={{ duration: 0.8, ease: "easeInOut" }}
 										className='origin-top! bg-primary! w-[0.08rem]! sm:w-[0.2rem]!'
 									/>
 							</div>
