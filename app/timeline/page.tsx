@@ -43,6 +43,22 @@ interface ArtTimelineItem {
 	};
 }
 
+interface ArtTimelineItem {
+	period: string;
+	title: string;
+	content: string;
+	artworks: {
+		url: string;
+		artist: string;
+		title: string;
+	}[];
+	featuredArtwork: {
+		url: string;
+		artist: string;
+		title: string;
+	};
+}
+
 export default function CustomisedTimeline () { 
 	const [isMounted, setIsMounted] = React.useState(false);
 	const [selectedItem, setSelectedItem] = React.useState<ArtTimelineItem | null>(null);
