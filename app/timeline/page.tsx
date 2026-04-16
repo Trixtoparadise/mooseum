@@ -177,11 +177,11 @@ export default function CustomisedTimeline () {
 								width={500}
 								height={500}
 								src={item.featuredArtwork.url}
-								className='rounded-sm cursor-pointer'
-								alt={item.featuredArtwork.title || item.title}
 								onClick={() => setSelectedItem(item)}
+								alt={item.featuredArtwork.title || item.title}
+								className='rounded-sm cursor-pointer'
 							/>
-							<Typography variant="h3" component="span"  className="font-sans! text-primary my-3! text-start!">
+							<Typography component="span"  className="flex! font-sans! text-primary text-[3rem]/12! my-5! text-start!">
 								{item.title}
 							</Typography>
 							<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
