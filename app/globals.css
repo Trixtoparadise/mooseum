@@ -1,15 +1,41 @@
 @layer theme, base, mui, components, utilities;
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme inline {
     --color-primary: #8B5DCF;
+
+    --color-primary-light: #8B5DCF;
+    --color-primary-dark: #D0C0ED;
+    --color-primary-alternate: #49267E;
+    
     --color-secondary: #ffffff;
+
+    --color-secondary-light: #ffffff;
+    --color-secondary-dark: #1B0E2F;
+    --color-secondary-alternate: #E7DFF6;
+    
     --color-shade: #5f3499;
+
+    --color-shade-light: #5f3499;
+    --color-shade-dark: #c9b3e5;
+
     --color-searchBg: #e4dbf1;
 
     --font-sans: var(--font-brownbaglunch);
     --font-mono: var(--font-cascadiamono);
     --font-custom: var(--font-gangofthree);
+}
+
+:root[data-theme="light"] {
+    color: var(--color-primary-light);
+    background-color: var(--color-secondary-light);
+}
+
+:root[data-theme="dark"] {
+    color: var(--color-primary-dark);
+    background-color: var(--color-secondary-dark);
 }
 
 @layer utilities {
