@@ -3,6 +3,7 @@ import Navbar from './ui/Navbar';
 import Footer from './ui/Footer';
 import localFont from 'next/font/local';
 import type { Metadata } from "next";
+import { ThemeProvider } from 'next-themes';
 import { Cascadia_Mono } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 
@@ -30,24 +31,30 @@ export default function DashboardLayout({
     children: React.ReactNode
   }) {
     return (
-      <html lang="en" className={`${brownBagLunch.variable} ${gangOfThree.variable} ${cascadiaMono.className}`}>
-        <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="icon" href='/favicon.ico' sizes='any' />
-        </head>
-        <body className="bg-pixel-grid">
-          <AppRouterCacheProvider
-            options={{ key: 'css'}}
-          >
-            <header className='bg-primary text-secondary medium'>
-                <Navbar />
-            </header>
-            <div className="min-h-screen">
-              <main className="grow flex">{children}</main>
-            </div>
-            <Footer />
-          </AppRouterCacheProvider>
-        </body>
-      </html>
+		<html lang="en" className={`${brownBagLunch.variable} ${gangOfThree.variable} ${cascadiaMono.className}`} suppressHydrationWarning>
+				<head>
+					<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+					<link rel="icon" href='/favicon.ico' sizes='any' />
+				</head>
+				<body className="bg-pixel-grid">
+						<AppRouterCacheProvider
+							options={{ key: 'css'}}
+						>
+							<ThemeProvider enableSystem={true} defaultTheme='system'>
+								<header className='bg-primary-light dark:bg-primary-alternate text-secondary-light dark:text-secondary-alternate medium'>
+									<Navbar />
+								</header>
+								<div className="min-h-screen">
+									<main className="grow flex">
+										{children}
+									</main>
+								</div>
+								<footer>
+									<Footer />
+								</footer>
+							</ThemeProvider>
+						</AppRouterCacheProvider>
+				</body>
+		</html>
     )
   }

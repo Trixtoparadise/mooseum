@@ -1,5 +1,6 @@
 "use client";
 import * as React from 'react';
+import * as NextThemes from 'next-themes';
 import Image from "next/image";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -64,6 +65,7 @@ export default function CustomisedTimeline () {
 	const [selectedItem, setSelectedItem] = React.useState<ArtTimelineItem | null>(null);
 
 	const theme = useTheme();
+  const themeType = NextThemes.useTheme()
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 	const AnimatedDot = motion(TimelineDot);
@@ -120,24 +122,24 @@ export default function CustomisedTimeline () {
 						<TimelineOppositeContent 
 							variant="body1" 
 							sx={{ display: { xs: 'none', md: 'block' } }}
-							className="font-mono! text-primary my-auto!"
+							className="font-mono! text-primary-light! dark:text-primary-dark! my-auto!"
 						>
 							{item.period}
 						</TimelineOppositeContent>
 						<TimelineSeparator>
 							<div className='relative! flex! flex-col! items-center! flex-1! w-full!'>
-								<div className='absolute! inset-0! bg-primary/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
-									<AnimatedConnector
-										initial={{ scaleY: 0 }}
-										viewport={{ once: false }}
-										whileInView={{ scaleY: 1 }}
-										transition={{ duration: 0.8, ease: "easeInOut" }}
-										className='origin-bottom! bg-primary! w-[0.08rem]! sm:w-[0.2rem]!'
-									/>
+								<div className='absolute! inset-0! bg-primary-light/30! dark:bg-primary-dark/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
+                <AnimatedConnector
+                  initial={{ scaleY: 0 }}
+                  viewport={{ once: false }}
+                  whileInView={{ scaleY: 1 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className='origin-bottom! bg-primary! dark:bg-primary-dark! w-[0.08rem]! sm:w-[0.2rem]!'
+                />
 							</div>
 							<AnimatedDot 
-								initial={{ backgroundColor: 'rgba(139, 93, 207, 0.4)' }}
-								whileInView={{ backgroundColor: "#8B5DCF" }}
+								initial={ themeType.theme == 'light' ? { backgroundColor: 'rgba(139, 93, 207, 0.3)' } : { backgroundColor: 'rgba(208, 192, 237, 0.3)' }}
+								whileInView={themeType.theme == 'light' ? { backgroundColor: "#8B5DCF" } : { backgroundColor: "#D0C0ED" }}
 								transition={{
 									delay: 0.6,
 									duration: 0.4
@@ -148,19 +150,19 @@ export default function CustomisedTimeline () {
 								<div className="w-1.5 h-1.5 sm:w-5 sm:h-5 rounded-full" />
 							</AnimatedDot>
 							<div className='relative! flex! flex-col! items-center! flex-1! w-full!'>
-								<div className='absolute! inset-0! bg-primary/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
-									<AnimatedConnector
-										initial={{ scaleY: 0 }}
-										viewport={{ once: false }}
-										whileInView={{ scaleY: 1 }}
-										transition={{ duration: 0.8, ease: "easeInOut" }}
-										className='origin-top! bg-primary! w-[0.08rem]! sm:w-[0.2rem]!'
-									/>
+								<div className='absolute! inset-0! bg-primary-light/30! dark:bg-primary-dark/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
+                <AnimatedConnector
+                  initial={{ scaleY: 0 }}
+                  viewport={{ once: false }}
+                  whileInView={{ scaleY: 1 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className='origin-top! bg-primary! dark:bg-primary-dark! w-[0.08rem]! sm:w-[0.2rem]!'
+                />
 							</div>
 							
 						</TimelineSeparator>
 						<AnimatedTimelineContent
-							className='flex-1! font-mono! text-primary py-3! px-4!'
+							className='flex-1! font-mono! text-primary-light! dark:text-primary-dark! py-3! px-4!'
 							initial={{ opacity: 0.3 }}
 							whileInView={{ opacity: 1 }}
 							transition={{
@@ -170,7 +172,7 @@ export default function CustomisedTimeline () {
 							}}
 							viewport={{ once: false, amount: 0.5 }}
 						>
-							<Typography variant='h6' className='md:hidden! font-mono! text-primary/70! my-4! font-normal! sm:font-bold!'>
+							<Typography variant='h6' className='md:hidden! font-mono! text-primary-light/70! dark:text-primary-dark/90! my-4! font-normal! sm:font-bold!'>
 								{item.period}
 							</Typography>
 							<Image 
@@ -181,10 +183,10 @@ export default function CustomisedTimeline () {
 								alt={item.featuredArtwork.title || item.title}
 								className='rounded-sm cursor-pointer'
 							/>
-							<Typography component="span"  className="flex! font-sans! text-primary text-[3rem]/12! my-5! text-start!">
+							<Typography component="span"  className="flex! font-sans! text-primary-light! dark:text-primary-dark! text-[3rem]/12! my-5! text-start!">
 								{item.title}
 							</Typography>
-							<Typography className="font-mono! font-light! text-primary max-w-full 2xl:max-w-2/3 ">
+							<Typography className="font-mono! font-light! text-primary-light! dark:text-primary-dark! max-w-full 2xl:max-w-2/3 ">
 								{item.content}
 							</Typography>
 						</AnimatedTimelineContent>
