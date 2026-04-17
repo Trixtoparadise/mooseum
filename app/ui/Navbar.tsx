@@ -1,13 +1,30 @@
 "use client";
-import * as React from 'react';
 import Link  from 'next/link';
-import { Menu, LightMode, Palette, Man, ViewTimeline} from '@mui/icons-material';
-import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-
-
+import * as React from 'react';
+import { useTheme } from 'next-themes';
+import { Menu, LightMode, DarkMode, Palette, Man, ViewTimeline} from '@mui/icons-material';
+import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
 
 export default function Navbar () {
     const [open, setOpen] = React.useState(false);
+    const { theme, setTheme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = React.useState<boolean>(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    React.useEffect(() => {
+        if (mounted && !theme) {
+            const systemTheme =
+            resolvedTheme || 
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light");
+        
+            setTheme(systemTheme);            
+        }
+    }, [mounted, theme, resolvedTheme, setTheme]);
 
     interface Route {
         path: string,
@@ -63,7 +80,7 @@ export default function Navbar () {
             <nav className='flex items-center justify-between w-full'>
                 <Link 
                     href="/" 
-                    className='hidden sm:flex text-[2.5rem] text-text-onDark hover:text-gray-200 transition-colors duration-200 -mt-2! py-3! focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
+                    className='hidden sm:flex text-[2.5rem] text-text-onDark hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 -mt-2! py-3! focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
                 >
                     MOOSEUM
                 </Link>
@@ -76,7 +93,7 @@ export default function Navbar () {
                                     <Link 
                                         prefetch
                                         href={item.path} 
-                                        className='text-[1.6rem] text-text-onDark/85 hover:text-gray-200 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
+                                        className='text-[1.6rem] text-text-onDark/85 hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
                                     >
                                         {item.name}
                                     </Link>
@@ -84,12 +101,15 @@ export default function Navbar () {
                             )
                         })}
                         <li>
-                            <IconButton 
-                                onClick={toggleDrawer(true)}
-                                className='hidden sm:flex! hover:text-gray-200 transition-colors duration-200 mt-2! focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80' 
+                           <IconButton 
+                                onClick={() => theme == 'light' ? setTheme('dark') : setTheme('light')}
+                                className='hidden! sm:flex! mt-2!' 
                             >
-                                <LightMode className='h-6! w-6! text-secondary '/>
-                            </IconButton>
+                                {theme == 'light' ?
+                                    <LightMode className={`h-6! w-6! text-secondary hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} /> :
+                                    <DarkMode className={`h-6! w-6! text-secondary hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} />
+                                }
+                            </IconButton> 
                         </li> 
                     </ul>
                 </div>
@@ -109,12 +129,14 @@ export default function Navbar () {
                 >
                     MOOSEUM
                 </Link>
-                
                 <IconButton 
-                    onClick={toggleDrawer(true)}
-                    className='sm:hidden! -m-2.5!' 
+                    onClick={() => theme == 'light' ? setTheme('dark') : setTheme('light')}
+                    className='flex! sm:hidden! -m-2.5!' 
                 >
-                    <LightMode className='h-8! w-8! text-secondary '/>
+                    {theme == 'light' ?
+                        <LightMode className='h-8! w-8! text-secondary' /> :
+                        <DarkMode className='h-7! w-7! text-secondary' />
+                    }
                 </IconButton>
             </nav>
         </header>
