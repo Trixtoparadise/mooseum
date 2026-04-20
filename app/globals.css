@@ -4,22 +4,16 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme inline {
-    --color-primary: #8B5DCF;
-
     --color-primary-light: #8B5DCF;
     --color-primary-dark: #D0C0ED;
     --color-primary-alternate: #49267E;
-    
-    --color-secondary: #ffffff;
 
     --color-secondary-light: #ffffff;
     --color-secondary-dark: #1B0E2F;
     --color-secondary-alternate: #E7DFF6;
-    
-    --color-shade: #5f3499;
 
     --color-shade-light: #5f3499;
-    --color-shade-dark: #c9b3e5;
+    --color-shade-dark: #4C2A7A;
 
     --color-searchBg-light: #e4dbf1;
     --color-searchBg-dark: #d2c3e7;
