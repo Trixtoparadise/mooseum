@@ -67,16 +67,16 @@ export default function Artists () {
                     <div className="space-y-12">
                         {[1, 2, 3, 4, 5].map((section) => (
                             <div key={section}>
-                                <Skeleton variant="text" width={40} height={60} className="mb-4 bg-primary/10!" />
+                                <Skeleton variant="text" width={40} height={60} className="mb-4 bg-primary-light/10! dark:bg-primary-dark/50!" />
                                 
                                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
                                     {Array.from({ length: 5 }).map((_, index) => (
-                                        <div key={index} className="flex items-center gap-3 p-2 rounded-lg border bg-primary/5! border-primary/5">
-                                            <Skeleton variant="circular" width={50} height={50} className="bg-primary/20!" animation="wave" />
+                                        <div key={index} className="flex items-center gap-3 p-2 rounded-lg border bg-primary-light/5! dark:bg-primary-alternate/60! border-primary-light/5! dark:border-primary-alternate/60!">
+                                            <Skeleton variant="circular" width={50} height={50} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
                                             
                                             <div className="flex-1">
-                                                <Skeleton variant="text" width="80%" height={20} className="bg-primary/20!" animation="wave" />
-                                                <Skeleton variant="text" width="50%" height={15} className="bg-primary/10!" animation="wave" />
+                                                <Skeleton variant="text" width="80%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                                                <Skeleton variant="text" width="50%" height={15} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
                                             </div>
                                         </div>
                                     ))}
