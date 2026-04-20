@@ -39,7 +39,7 @@ export default function ImageMasonry(props: PropType) {
                         className='my-4! cursor-pointer' 
                          onClick={() => handleOpen(index)}
                     >
-                        <Paper className='bg-primary/10! p-4 text-center text-primary! rounded-b-none!'>{item.title}</Paper>
+                        <Paper className='bg-primary-light/10! dark:bg-primary-dark/10! p-4 text-center text-primary-light! dark:text-primary-dark! rounded-b-none!'>{item.title}</Paper>
                         <img
                             loading="lazy"
                             alt={item.title}
