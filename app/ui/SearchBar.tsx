@@ -53,21 +53,21 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                     />
                     <Paper
                         component="form"
-                        className='relative! z-1300! px-1! flex! items-center! sm:w-80! w-full! bg-searchBg!'
+                        className='relative! z-1300! px-1! flex! items-center! sm:w-80! w-full! bg-searchBg-light! dark:bg-searchBg-dark!'
                         sx={{ position: 'relative', zIndex: (theme) => theme.zIndex.drawer + 2 }}
                     >
-                        <SearchIcon className='m-2! text-shade!' aria-label="search" />
+                        <SearchIcon className='m-2! text-shade! dark:text-primary-alternate!' aria-label="search" />
                         <InputBase
                             value={value}
                             {...bindFocus(popupState)}
                             onChange={(e) => ( setValue(e.currentTarget.value))}
-                            className='flex-1! ml-0.5! text-shade! font-mono!'
+                            className='flex-1! ml-0.5! text-shade! dark:text-primary-alternate! font-mono!'
                             placeholder={`Search ${searchItem}`}
                             inputProps={{ 'aria-label': `search ${searchItem}` }}
                         />
                         <IconButton 
                             type="button" 
-                            className='p-2! text-shade!' 
+                            className='p-2! text-shade! dark:text-primary-alternate!' 
                             aria-label="clear" 
                             onClick={() => setValue("")}
                         >
@@ -81,10 +81,10 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                     >
                         {({ TransitionProps }) => ( 
                                 <Fade {...TransitionProps} timeout={300}>
-                                    <Paper className='relative! max-h-78 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg!'>
+                                    <Paper className='relative! max-h-78 overflow-y-scroll mt-3 sm:mx-0 mx-4 bg-searchBg-light! dark:bg-searchBg-dark!'>
                                         {Object.entries(groupedList).map(([letter, items]) => (
                                           <Box key={letter}>
-                                            <Typography className='px-4! py-1! text-xl! font-bold! font-sans! small bg-primary! text-secondary! uppercase sticky top-0 z-10'>
+                                            <Typography className='px-4! py-1! text-xl! font-bold! font-sans! small bg-primary-light! dark:bg-primary-alternate! text-secondary-light! dark:text-secondary-alternate! uppercase sticky top-0 z-10'>
                                                 {letter}
                                             </Typography>
 
@@ -106,11 +106,11 @@ export default function SearchBar<T extends SearchableItem>(props: PropType<T>) 
                                                                 popupState.close();
                                                             }} 
                                                         >
-                                                            <p className='select-none py-2.5 text-shade!'>
+                                                            <p className='select-none py-2.5 text-shade! dark:text-primary-alternate!'>
                                                                 {indx >= 0 && value ? (
                                                                     <>
                                                                         {leftText}
-                                                                        <span className="font-bold text-primary">{keyWord}</span>
+                                                                        <span className="font-bold text-primary dark:text-secondary-dark">{keyWord}</span>
                                                                         {rightText}
                                                                     </>
                                                                 ) : artist}
