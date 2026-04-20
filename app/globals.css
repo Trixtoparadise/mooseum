@@ -21,7 +21,8 @@
     --color-shade-light: #5f3499;
     --color-shade-dark: #c9b3e5;
 
-    --color-searchBg: #e4dbf1;
+    --color-searchBg-light: #D3C4E8;
+    --color-searchBg-dark: #d2c3e7;
 
     --font-sans: var(--font-brownbaglunch);
     --font-mono: var(--font-cascadiamono);
