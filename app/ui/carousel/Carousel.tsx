@@ -100,7 +100,7 @@ const Carousel = (props: PropType) => {
                                 relative flex h-[2.6rem] w-[2.6rem] cursor-pointer items-center justify-center 
                                 rounded-full border-0 bg-transparent p-0 touch-manipulation appearance-none
                                 before:absolute before:flex before:h-[1.1rem] before:w-[1.1rem] before:items-center before:rounded-full before: before:bg-gray-300 before:content-['']
-                                after:absolute after:flex after:h-[1.1rem] after:w-[1.1rem] after:items-center after:rounded-full after: after:bg-primary after:content-[''] after:transition-opacity after:duration-200
+                                after:absolute after:flex after:h-[1.1rem] after:w-[1.1rem] after:items-center after:rounded-full after: after:bg-primary-light dark:after:bg-primary-alternate after:content-[''] after:transition-opacity after:duration-200
                                 ${index === selectedIndex ? 'after:opacity-100' : 'after:opacity-0'}
                             `}
                         />
