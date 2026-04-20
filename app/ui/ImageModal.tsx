@@ -125,7 +125,7 @@ export default function ImageModal(props: PropType) {
                     >
                         <IconButton 
                             onClick={handlePrev} 
-                            className='hidden! md:flex! text-secondary! hover:bg-white/10! pointer-events-auto!'
+                            className='hidden! md:flex! text-secondary-light! hover:bg-white/10! pointer-events-auto!'
                         >
                             <ArrowLeft className='text-[2rem]! md:text-[3rem]! lg:text-[6rem]!' />
                         </IconButton>
@@ -168,11 +168,11 @@ export default function ImageModal(props: PropType) {
                                         </div>
                                         <Stack className='w-full sticky! bottom-0! bg-black/40! backdrop-blur-md! p-6! border-t! border-white/10! z-20 mt-auto!'>
                                             <div className='max-w-full'>
-                                                <p className='text-secondary/80 text-[1.1rem] font-medium mt-1 mb-4'>{currentItem.title} ({currentItem.year})</p>
-                                                <p className='text-secondary/80 text-[1rem] font-light mt-1 leading-relaxed text-justify mb-4 max-w-full xl:max-w-3/4'>
+                                                <p className='text-secondary-light/80 text-[1.1rem] font-medium mt-1 mb-4'>{currentItem.title} ({currentItem.year})</p>
+                                                <p className='text-secondary-light/80 text-[1rem] font-light mt-1 leading-relaxed text-justify mb-4 max-w-full xl:max-w-3/4'>
                                                     {currentItem.description}
                                                 </p>
-                                                <p className='text-secondary/80 text-[1rem] font-extralight mt-1 leading-relaxed italic'>
+                                                <p className='text-secondary-light/80 text-[1rem] font-extralight mt-1 leading-relaxed italic'>
                                                     {currentItem.location}
                                                 </p>
                                             </div>
