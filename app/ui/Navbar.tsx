@@ -80,7 +80,7 @@ export default function Navbar () {
             <nav className='flex items-center justify-between w-full'>
                 <Link 
                     href="/" 
-                    className='hidden sm:flex text-[2.5rem] text-text-onDark hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 -mt-2! py-3! focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
+                    className='hidden sm:flex text-[2.5rem] text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 -mt-2! py-3! focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
                 >
                     MOOSEUM
                 </Link>
@@ -93,7 +93,7 @@ export default function Navbar () {
                                     <Link 
                                         prefetch
                                         href={item.path} 
-                                        className='text-[1.6rem] text-text-onDark/85 hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
+                                        className='text-[1.6rem] text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
                                     >
                                         {item.name}
                                     </Link>
@@ -106,8 +106,8 @@ export default function Navbar () {
                                 className='hidden! sm:flex! mt-2!' 
                             >
                                 {theme == 'light' ?
-                                    <LightMode className={`h-6! w-6! text-secondary hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} /> :
-                                    <DarkMode className={`h-6! w-6! text-secondary hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} />
+                                    <LightMode className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} /> :
+                                    <DarkMode className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} />
                                 }
                             </IconButton> 
                         </li> 
@@ -118,14 +118,14 @@ export default function Navbar () {
                     onClick={toggleDrawer(true)}
                     className='sm:hidden! -m-2.5!' 
                 >
-                    <Menu className='h-9.5! w-9.5! text-secondary' />
+                    <Menu className='h-9.5! w-9.5! text-secondary-light! dark:text-secondary-alternate!' />
                 </IconButton>
 
                 <MobileDrawer />
                 
                 <Link 
                     href="/" 
-                    className='sm:hidden text-[2.3rem] -mt-2! py-3!'
+                    className='sm:hidden text-[2.3rem] text-secondary-light! dark:text-secondary-alternate! -mt-2! py-3!'
                 >
                     MOOSEUM
                 </Link>
@@ -134,8 +134,8 @@ export default function Navbar () {
                     className='flex! sm:hidden! -m-2.5!' 
                 >
                     {theme == 'light' ?
-                        <LightMode className='h-8! w-8! text-secondary' /> :
-                        <DarkMode className='h-7! w-7! text-secondary' />
+                        <LightMode className='h-8! w-8! text-secondary-light! dark:text-secondary-alternate!' /> :
+                        <DarkMode className='h-7! w-7! text-secondary-light! dark:text-secondary-alternate! ' />
                     }
                 </IconButton>
             </nav>
