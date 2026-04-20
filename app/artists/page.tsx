@@ -88,7 +88,7 @@ export default function Artists () {
                     Object.entries(groupedArtists).map(([letter, items]) => (
                         <div key={letter} className="mb-8">
                             <div className="top-0 z-10 py-2 mb-4">
-                                <span className="text-4xl font-bold font-sans text-primary">{letter}</span>
+                                <span className="text-4xl font-bold font-sans text-primary-light dark:text-primary-dark">{letter}</span>
                             </div>
 
                             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
