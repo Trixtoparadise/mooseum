@@ -111,7 +111,7 @@ export default function ImageModal(props: PropType) {
                         />
                         <IconButton 
                             onClick={onClose} 
-                            className="text-secondary! hover:bg-white/10! z-30! pointer-events-auto!"
+                            className="text-secondary-light! hover:bg-white/10! z-30! pointer-events-auto!"
                         >
                             <Close className="text-[1.5rem]! md:text-[2rem]! lg:text-[3rem]!" /> 
                         </IconButton>
