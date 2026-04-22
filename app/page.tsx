@@ -31,14 +31,14 @@ export default function Page() {
 						variant='contained'
 						href='/timeline#top'
 						LinkComponent={Link}
-						className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! font-sans! text-[1.4rem]! md:text-[1.5rem]! text-base/8! md:text-base/8! px-8! md:px-12! py-3!'
+						className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! hover:text-secondary-light! hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! dark:hover:text-primary-alternate! font-sans! text-[1.4rem]! md:text-[1.5rem]! text-base/8! md:text-base/8! px-8! md:px-12! py-3!'
 					>
 						A TRIP DOWN<br/>MEMORY LANE
 					</Button>
 					<Button 
 						variant='contained'
 						LinkComponent={Link}
-						className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! font-sans! text-[1.4rem]! md:text-[1.5rem]! text-base/8! md:text-base/8! px-5! md:px-10! py-3!'
+						className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! hover:text-secondary-light! hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! dark:hover:text-primary-alternate! font-sans! text-[1.4rem]! md:text-[1.5rem]! text-base/8! md:text-base/8! px-5! md:px-10! py-3!'
 					>
 						CHECK OUT SOME<br/>EXHIBITIONS
 					</Button>
@@ -74,14 +74,14 @@ export default function Page() {
 					variant='contained'
 					href='/timeline#top'
 					LinkComponent={Link}
-					className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! font-sans! text-[1.3rem]! text-base/8! text-center! px-8! py-3!'
+					className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! hover:text-secondary-light! hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! dark:hover:text-primary-alternate! font-sans! text-[1.3rem]! text-base/8! text-center! px-8! py-3!'
 				>
 					A TRIP DOWN MEMORY LANE
 				</Button>
 				<Button 
 					variant='contained'
 					LinkComponent={Link}
-					className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! font-sans! text-[1.3rem]! text-base/8! text-center! px-6! py-3!'
+					className='bg-primary-light! dark:bg-primary-alternate! text-secondary! dark:text-secondary-alternate! hover:text-secondary-light! hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! dark:hover:text-primary-alternate! font-sans! text-[1.3rem]! text-base/8! text-center! px-6! py-3!'
 				>
 					CHECK OUT SOME EXHIBITIONS
 				</Button>
