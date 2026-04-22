@@ -206,7 +206,7 @@ export default function CustomisedTimeline () {
 					>
 						<IconButton 
                 onClick={() => setSelectedItem(null)} 
-                className="text-secondary! hover:bg-white/10! z-30! w-15! h-15! my-2! pointer-events-auto! mx-auto!"
+                className="text-secondary-light! hover:bg-white/10! z-30! w-15! h-15! my-2! pointer-events-auto! mx-auto!"
             >
                 <Close className="text-[1.5rem]! md:text-[2rem]! lg:text-[3rem]!" /> 
             </IconButton>
@@ -237,8 +237,8 @@ export default function CustomisedTimeline () {
 										</div>
 										<Stack className='w-full sticky! bottom-0! bg-black/40! backdrop-blur-md! p-6! border-t! border-white/10! z-20 mt-auto!'>
 											<div className='max-w-full'>
-												<p className='text-secondary/80 text-[1.1rem] font-medium mt-1 mb-4'>{selectedItem.featuredArtwork.title}</p>
-												<p className='text-secondary/80 text-[1rem] font-extralight mt-1 leading-relaxed italic'>
+												<p className='text-secondary-light/80 text-[1.1rem] font-medium mt-1 mb-4'>{selectedItem.featuredArtwork.title}</p>
+												<p className='text-secondary-light/80 text-[1rem] font-extralight mt-1 leading-relaxed italic'>
 													{selectedItem.featuredArtwork.artist || 'Unknown Artist'}
 												</p>
 											</div>

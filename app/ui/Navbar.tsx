@@ -2,7 +2,7 @@
 import Link  from 'next/link';
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Menu, LightMode, DarkMode, Palette, Man, ViewTimeline} from '@mui/icons-material';
+import { Contrast, Menu, LightMode, DarkMode, Palette, Man, ViewTimeline} from '@mui/icons-material';
 import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
 
 export default function Navbar () {
@@ -62,10 +62,10 @@ export default function Navbar () {
                         {routes.map((item) => (
                             <ListItem key={item.name} disablePadding>
                                 <ListItemButton className='bg-shade-light! dark:bg-shade-dark! rounded-sm! my-1! mx-1.5!'>
-                                    <ListItemIcon className='text-secondary! dark:text-secondary-light/90!'>
+                                    <ListItemIcon className='text-secondary-light! dark:text-secondary-light/90!'>
                                         {item.name == "ARTISTS" ? <Man /> : item.name == "ARTWORKS" ? <Palette /> : <ViewTimeline />}
                                     </ListItemIcon>
-                                    <Link className='text-secondary dark:text-secondary-light/90! text-[1.5rem] font-sans -ml-4!' href={item.path} prefetch>{item.name}</Link>
+                                    <Link className='text-secondary-light dark:text-secondary-light/90! text-[1.5rem] font-sans -ml-4!' href={item.path} prefetch>{item.name}</Link>
                                 </ListItemButton>
                             </ListItem>
                         ))}
@@ -74,6 +74,7 @@ export default function Navbar () {
             </Drawer>
         )
     }
+
 
     return (
         <header className='mb-0 px-3! sm:px-18! font-sans'>
@@ -101,13 +102,17 @@ export default function Navbar () {
                             )
                         })}
                         <li>
+                            
                            <IconButton 
                                 onClick={() => theme == 'light' ? setTheme('dark') : setTheme('light')}
                                 className='hidden! sm:flex! mt-2!' 
                             >
-                                {theme == 'light' ?
-                                    <LightMode className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} /> :
-                                    <DarkMode className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} />
+                                {mounted ? 
+                                    theme == 'light' ?
+                                        <LightMode className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} /> :
+                                        <DarkMode className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} />
+                                    :
+                                    <Contrast className={`h-6! w-6! text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 transition-colors duration-200 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80`} />
                                 }
                             </IconButton> 
                         </li> 
@@ -133,9 +138,12 @@ export default function Navbar () {
                     onClick={() => theme == 'light' ? setTheme('dark') : setTheme('light')}
                     className='flex! sm:hidden! -m-2.5!' 
                 >
-                    {theme == 'light' ?
-                        <LightMode className='h-8! w-8! text-secondary-light! dark:text-secondary-alternate!' /> :
-                        <DarkMode className='h-7! w-7! text-secondary-light! dark:text-secondary-alternate! ' />
+                    {mounted ?
+                        theme == 'light' ?
+                            <LightMode className='h-8! w-8! text-secondary-light! dark:text-secondary-alternate!' /> :
+                            <DarkMode className='h-7! w-7! text-secondary-light! dark:text-secondary-alternate!' />
+                        :
+                        <Contrast className='h-8! w-8! text-secondary-light! dark:text-secondary-alternate!' />
                     }
                 </IconButton>
             </nav>
