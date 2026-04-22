@@ -62,10 +62,10 @@ export default function Navbar () {
                         {routes.map((item) => (
                             <ListItem key={item.name} disablePadding>
                                 <ListItemButton className='bg-shade-light! dark:bg-shade-dark! rounded-sm! my-1! mx-1.5!'>
-                                    <ListItemIcon className='text-secondary! dark:text-secondary-light/90!'>
+                                    <ListItemIcon className='text-secondary-light! dark:text-secondary-light/90!'>
                                         {item.name == "ARTISTS" ? <Man /> : item.name == "ARTWORKS" ? <Palette /> : <ViewTimeline />}
                                     </ListItemIcon>
-                                    <Link className='text-secondary dark:text-secondary-light/90! text-[1.5rem] font-sans -ml-4!' href={item.path} prefetch>{item.name}</Link>
+                                    <Link className='text-secondary-light dark:text-secondary-light/90! text-[1.5rem] font-sans -ml-4!' href={item.path} prefetch>{item.name}</Link>
                                 </ListItemButton>
                             </ListItem>
                         ))}
