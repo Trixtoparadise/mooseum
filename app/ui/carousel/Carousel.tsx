@@ -50,7 +50,7 @@ const Carousel = (props: PropType) => {
             <div className='overflow-hidden rounded-md' ref={emblaRef}>
                 <div className='flex touch-pan-y touch-pinch-zoom ml-[calc(var(--slide-spacing)*-1)]'>
                     {slides.map((URL, index) => {
-                        const { data, loading, error } = bgColors[index];
+                        const { data, loading } = bgColors[index];
 
                         if (!loading) {
                             return (
@@ -69,12 +69,12 @@ const Carousel = (props: PropType) => {
                         } else {
                             return (
                                 <Skeleton 
-                                    className='flex-[0_0_var(--slide-size)]! min-w-0 pl-(--slide-spacing)! bg-primary/20!'
+                                    className='flex-[0_0_var(--slide-size)]! min-w-0 pl-(--slide-spacing)! bg-primary-light/20! dark:bg-primary-dark/40!'
                                     variant="rounded" 
                                     animation="wave"
                                     key={index}
                                 >
-                                    <div style={{ backgroundColor: data }} className='flex items-center justify-center sm:h-(--slide-height) h-80'>
+                                    <div className='flex items-center justify-center sm:h-(--slide-height) h-80'>
                                         <Image 
                                             src={URL}
                                             width={500}
