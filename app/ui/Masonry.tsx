@@ -50,7 +50,8 @@ export default function ImageMasonry(props: PropType) {
                 ))}
             </Masonry>
             <ImageModal 
-                data={data} 
+                data={data}
+                steps={data.length} 
                 open={toggleModal}
                 initialIndex={currentIndex}
                 onClose={() => setToggleModal(false)}
