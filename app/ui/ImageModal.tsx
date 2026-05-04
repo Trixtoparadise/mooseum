@@ -184,7 +184,7 @@ export default function ImageModal(props: PropType) {
                         </Box>
                         <IconButton 
                             onClick={handleNext} 
-                            className='hidden! md:flex! text-secondary! hover:bg-white/10! pointer-events-auto!'
+                            className='hidden! md:flex! text-secondary-light! hover:bg-white/10! pointer-events-auto!'
                         >
                             <ArrowRight className='text-[2rem]! md:text-[3rem]! lg:text-[6rem]!' />
                         </IconButton>
