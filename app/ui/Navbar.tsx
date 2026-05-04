@@ -32,9 +32,9 @@ export default function Navbar () {
     }
     
     const routes: Route[] = [
-        { path: "/artists", name: "ARTISTS" },
-        { path: "/artworks", name: "ARTWORKS" },
-        { path: "/movements", name: "MOVEMENTS" },
+        { path: "/artists", name: "Artists" },
+        { path: "/artworks", name: "Artworks" },
+        { path: "/movements", name: "Movements" },
     ];
     
     const toggleDrawer = (newOpen: boolean) => () => {
@@ -63,9 +63,9 @@ export default function Navbar () {
                             <ListItem key={item.name} disablePadding>
                                 <ListItemButton className='bg-shade-light! dark:bg-shade-dark! rounded-sm! my-1! mx-1.5!'>
                                     <ListItemIcon className='text-secondary-light! dark:text-secondary-light/90!'>
-                                        {item.name == "ARTISTS" ? <Man /> : item.name == "ARTWORKS" ? <Palette /> : <ViewTimeline />}
+                                        {item.name == "Artists" ? <Man /> : item.name == "Artworks" ? <Palette /> : <ViewTimeline />}
                                     </ListItemIcon>
-                                    <Link className='text-secondary-light dark:text-secondary-light/90! text-[1.5rem] font-sans -ml-4!' href={item.path} prefetch>{item.name}</Link>
+                                    <Link className='text-secondary-light dark:text-secondary-light/90! text-[1.9rem] font-sans -ml-4! -mt-2' href={item.path} prefetch>{item.name}</Link>
                                 </ListItemButton>
                             </ListItem>
                         ))}
@@ -94,7 +94,7 @@ export default function Navbar () {
                                     <Link 
                                         prefetch
                                         href={item.path} 
-                                        className='text-[1.6rem] text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
+                                        className='text-[2rem] text-secondary-light! dark:text-secondary-alternate! hover:text-gray-200 dark:hover:text-gray-50 transition-colors duration-200 py-1 focus:outline-none focus-visible:underline focus-visible:underline-offset-8 focus-visible:decoration-accent/80'
                                     >
                                         {item.name}
                                     </Link>

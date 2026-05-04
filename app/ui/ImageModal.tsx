@@ -22,14 +22,15 @@ interface ArtworkData {
 }
 
 type PropType = {
-    data: ArtworkData[],
+    steps: number;
     open: boolean;
+    data: ArtworkData[],
     onClose: () => void;
     initialIndex: number;
 }
 
 export default function ImageModal(props: PropType) {
-    const { data, open, onClose, initialIndex } = props;
+    const { data, open, onClose, initialIndex, steps } = props;
     const [direction, setDirection] = React.useState(0);
     const [index, setIndex] = React.useState<number>(initialIndex);
 
@@ -92,7 +93,7 @@ export default function ImageModal(props: PropType) {
                     >
                         <MobileStepper
                             variant='progress'
-                            steps={5}
+                            steps={steps}
                             position='static'
                             activeStep={index}
                             sx={{
@@ -183,7 +184,7 @@ export default function ImageModal(props: PropType) {
                         </Box>
                         <IconButton 
                             onClick={handleNext} 
-                            className='hidden! md:flex! text-secondary! hover:bg-white/10! pointer-events-auto!'
+                            className='hidden! md:flex! text-secondary-light! hover:bg-white/10! pointer-events-auto!'
                         >
                             <ArrowRight className='text-[2rem]! md:text-[3rem]! lg:text-[6rem]!' />
                         </IconButton>
