@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ArtistAvatar from '../ui/Avatar';
 import SearchBar  from "../ui/SearchBar";
-import { Skeleton } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 
 interface Artist {
   id: string;
