@@ -1,59 +1,98 @@
 "use client";
-import ButtonBase from '@mui/material/ButtonBase';
+import * as React from 'react';
+import Image from "next/image";
+import SearchBar  from "../ui/SearchBar";
+import ImageMasonry from '../ui/Masonry';
+import Skeleton from '@mui/material/Skeleton';
 
-const cards = [
-    {
-        id: 1,
-        width: 'calc(25% - 12px)',
-        title: 'Ecclesiastical and Devotional',
-        url: 'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1776780581/Vincent_van_Gogh_858_zopfes.jpg',
-        description: 'Historically, the Church was the primary architect of visual culture. These works were commissioned as instruments of liturgy and "Biblia Pauperum" (the Bible of the poor), designed to bridge the gap between the mundane and the eternal. They functioned as pedagogical tools for theological instruction and as conduits for spiritual meditation.',
-    },
-    {
-        id: 2,
-        width: 'calc(25% - 12px)',
-        title: 'Royal and State Propaganda',
-        url: 'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1776836996/Eugene_Delacroix_25_bxgw2i.jpg',
-        description: "Commissioned by absolute monarchs and governing bodies, these works served as visual manifestations of political legitimacy. They were intended to solidify the ruler's authority, celebrate military victory, or define a cohesive national identity for the citizenry.",
-    },
-    {
-        id: 3,
-        width: 'calc(25% - 12px)',
-        title: 'The Mercantile and Private Market',
-        url: 'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1776780580/Pablo_Picasso_82_lg8fxv.jpg',
-        description: "With the expansion of the urban middle class, art transitioned from public monument to domestic commodity. These works were created for private homes and commercial galleries, focusing on the nuanced experiences of the individual and the aesthetic pleasure of the natural world."
-    },
-    {
-        id: 4,
-        width: 'calc(25% - 12px)',
-        title: 'Institutional and Global Contemporary',
-        url: 'https://res.cloudinary.com/dzzwjwhfl/image/upload/v1776781212/Claude_Monet_68_fsue98.jpg',
-        description: 'Works in this category are often produced for the academic and professional museum circuit. Their intent is to explore the limits of formal theory, interrogate the historical canon, and act as a catalyst for discourse on global identity and social justice.'
-    }
-];
+type Artwork = {
+    id: string;
+    title: string;
+    year: number;
+    description: string;
+    location: string;
+    artistId: string;
+    movementId: string;
+    imageUrl: string;
+}
 
-export default function ButtonBaseDemo() {
+export default function Artists () {
+    const [artworks, setArtworks] = React.useState<Artwork[]>([]);
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    const groupedArtworks = React.useMemo(() => {
+        if (!artworks) return {};
+
+        return [...artworks]
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .reduce((acc, artist) => {
+                const char = artist.title.charAt(0).toUpperCase();
+                if (!acc[char]) acc[char] = [];
+                acc[char].push(artist);
+                return acc;
+            }, {} as Record<string, typeof artworks>)
+    }, [artworks]);
+
+    React.useEffect(() => {
+        async function getArtists () {
+            const headersList = {
+                "Accept": "*/*"
+            }
+
+            try {
+                const response = await fetch("https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artworks", { 
+                    method: "GET",
+                    headers: headersList
+                });
+
+                let data = await response.text();
+                setArtworks(JSON.parse(data));
+                setIsLoading(false)
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        getArtists();
+    }, []);
+    
     return (
-        <div className='flex flex-wrap w-full px-4 sm:px-18 my-8 sm:my-12.5 min-w-70 gap-4 justify-center'>
-            {cards.map((card) => (
-                <ButtonBase
-                    focusRipple
-                    key={card.id}
-                    className='group relative! h-80! w-full! bg-black! text-white! shadow-md! shadow-primary-light/50! sm:h-210! md:w-[calc(25%-16px)]! overflow-hidden! focus:outline-none! rounded-md!'
-                >
-                    <div 
-                        style={{ backgroundImage: `url(${card.url})` }}
-                        className={`absolute inset-0 bg-cover bg-position-[center_40%] transition-all duration-500 opacity-70 group-hover:opacity-100 group-hover:scale-102`}
-                    />
-
-                    <div className='absolute inset-0 flex items-center justify-center'>
-                        <span className='relative px-2 py-4 border-transparent transition-all duration-300 font-mono font-light text-[0.95rem] sm:text-[1.05rem] tracking-wider rounded-sm group-hover:border-white bg-black/60 sm:bg-black/35 sm:group-hover:bg-black/60 group-focus-visible:border-white group-focus-visible:bg-black/50'>
-                            {card.title}
-                            <span className='absolute -bottom-0.5 left-[calc(50%-9px)] h-0.5 w-4.5 bg-white transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0' />
-                        </span>
+        <div className="flex-1 sm:justify-start mt-6 sm:my-10 mx-4 sm:mx-19">
+            <div className='sm:mb-15 mb-8 justify-center'>
+                <SearchBar 
+                    searchItem="artwork" 
+                    searchList={artworks}
+                />
+            </div>
+            <div className='sm:max-h-full max-h-[78vh] sm:overflow-y-hidden overflow-y-scroll'>
+                {isLoading ? (
+                    <div className="space-y-12">
+                        {[1, 2, 3, 4, 5].map((section) => (
+                            <div key={section} className='w-full max-w-full sm:max-w-6xl'>
+                                <Skeleton variant="text" width={40} height={60} className="mb-4 bg-primary-light/10! dark:bg-primary-dark/50!" />
+                                
+                                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
+                                    {Array.from({ length: 13 }).map((_, index) => (
+                                        <Skeleton key={index} variant="rectangular" width="100%" height={320} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                </ButtonBase>
-            ))}
+                ) : (
+                    Object.entries(groupedArtworks).map(([letter, items]) => (
+                        <div key={letter} className="mb-8">
+                            <div className="top-0 z-10 py-2 mb-4">
+                                <span className="text-4xl font-bold font-sans text-primary-light dark:text-primary-dark">{letter}</span>
+                            </div>
+
+                            <ImageMasonry 
+                                data={items}
+                            />
+                        </div>
+                    ))
+                )}
+            </div>
         </div>
-    );
+    )
 }
