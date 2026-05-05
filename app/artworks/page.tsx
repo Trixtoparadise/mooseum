@@ -1,6 +1,5 @@
 "use client";
 import * as React from 'react';
-import Image from "next/image";
 import SearchBar  from "../ui/SearchBar";
 import ImageMasonry from '../ui/Masonry';
 import Skeleton from '@mui/material/Skeleton';
@@ -25,16 +24,16 @@ export default function Artists () {
 
         return [...artworks]
             .sort((a, b) => a.title.localeCompare(b.title))
-            .reduce((acc, artist) => {
-                const char = artist.title.charAt(0).toUpperCase();
+            .reduce((acc, artwork) => {
+                const char = artwork.title.charAt(0).toUpperCase();
                 if (!acc[char]) acc[char] = [];
-                acc[char].push(artist);
+                acc[char].push(artwork);
                 return acc;
             }, {} as Record<string, typeof artworks>)
     }, [artworks]);
 
     React.useEffect(() => {
-        async function getArtists () {
+        async function getArtworks () {
             const headersList = {
                 "Accept": "*/*"
             }
@@ -53,7 +52,7 @@ export default function Artists () {
             }
         }
 
-        getArtists();
+        getArtworks();
     }, []);
     
     return (
