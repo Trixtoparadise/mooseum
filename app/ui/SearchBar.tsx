@@ -9,7 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import PopupState, { bindPopper, bindFocus } from 'material-ui-popup-state';
 import { Backdrop, Box, Fade, IconButton, InputBase, Paper, Popper, Stack, Typography } from '@mui/material';
 
-interface SearchableItem {
+type SearchableItem = {
     id: string;
     [key: string]: any;
 }
@@ -22,8 +22,6 @@ type PropType<T extends SearchableItem> = {
 export default function SearchBar<T extends SearchableItem>(props: PropType<T>) {
     const { searchItem, searchList } = props;
     const [value, setValue] = React.useState<string>("");
-    const [currentIndex, setCurrentIndex] = React.useState(0);
-    const [toggleModal, setToggleModal] = React.useState(false);
     const [selectedItem, setSelectedItem] = React.useState<T | null>(null);
 
     const filteredList = React.useMemo(() => {
