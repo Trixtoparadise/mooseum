@@ -13,7 +13,7 @@ export default function ArtistAvatar(props : PropType) {
     const { id, name, nationality, years, imageUrl } = props;
 
     return (
-        <Stack className="bg-primary-light/90 dark:bg-primary-alternate/90 hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! hover:bg-shade rounded-md min-w-50">
+        <Stack className="bg-primary-light/90 dark:bg-primary-alternate/90 hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! rounded-md min-w-50">
             <ButtonBase 
                 className="flex grow py-2.5! px-6! overflow-hidden text-secondary-light! dark:text-secondary-alternate! sm:text-[1rem] dark:hover:text-primary-alternate!"
                 sx={{
