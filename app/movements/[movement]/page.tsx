@@ -83,15 +83,15 @@ export default async function MovementPage({
                 {movementData.characteristics.map((item, index) => (
                     <Box
                         key={index}
-                        className='relative! mb-4! overflow-hidden! rounded-md!' 
+                        className='mb-4!' 
                     >
                         <img
                             loading="lazy"
                             alt="background-image"
-                            className='block w-full h-full object-cover'
+                            className='rounded-t-md!'
                             src={`${JSON.parse(movementLinks)[movementData.name][index]}?w=500&auto=format`}
                         />
-                        <Paper className='absolute bottom-0 left-0 right-0 bg-secondary-dark/50! backdrop-blur-md! p-4 font-light! text-[1rem] text-center text-secondary-light! dark:text-searchBg-light! rounded-none!'>
+                        <Paper className='bg-primary-light/10! dark:bg-primary-dark/10! p-4 font-light! text-[1rem] text-center text-primary-light! dark:text-primary-dark! rounded-b-md!'>
                             {item}
                         </Paper>
                     </Box>
