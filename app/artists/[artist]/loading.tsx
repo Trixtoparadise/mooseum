@@ -6,7 +6,7 @@ export default function Loading() {
     return (
         <Suspense>
             <Stack className="flex-1 sm:justify-start mt-6! sm:my-10! mx-4 sm:mx-19">
-                <Skeleton variant="text" width={270} height={80} className="sm:mb-7! bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
+                <Skeleton variant="text" width={270} height={80} className="mx-auto! sm:mx-0! sm:mb-7! bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
                 
                 <Stack className='flex! flex-col! md:flex-row! items-stretch! gap-3! sm:gap-6!'>
                     <Stack spacing={10} className='w-full! md:w-1/3! lg:w-1/4!'>
