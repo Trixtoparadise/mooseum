@@ -70,7 +70,7 @@ export default function Artists () {
                             <div key={section} className='w-full max-w-full sm:max-w-6xl'>
                                 <Skeleton variant="text" width={40} height={60} className="mb-4 bg-primary-light/10! dark:bg-primary-dark/50!" />
                                 
-                                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
+                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
                                     {Array.from({ length: 13 }).map((_, index) => (
                                         <Skeleton key={index} variant="rectangular" width="100%" height={320} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
                                     ))}
