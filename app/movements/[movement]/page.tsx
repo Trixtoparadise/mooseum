@@ -64,7 +64,7 @@ export default async function MovementPage({
             <Typography className='font-mono! font-extralight! text-[1.7rem]! text-center! sm:text-start! sm:text-[2.2rem]! mb-5!'>
                 {movementData.name}
             </Typography>
-            <Box className='flex-1 flex flex-col gap-2 p-4 mb-10 mr-0! sm:mr-6! max-w-full lg:max-w-2/3 bg-primary-light/10 dark:bg-primary-dark/10 rounded-md'>
+            <Box className='flex-1 flex flex-col gap-2 p-2! sm:p-4! mb-10 mr-0! sm:mr-6! max-w-full lg:max-w-2/3 bg-primary-light/10 dark:bg-primary-dark/10 rounded-md'>
                 <Typography className='font-mono! px-4! pb-1! sm:px-0! sm:pb-3! sm:mx-4! text-primary-light! dark:text-primary-dark! text-[0.95rem]! sm:text-md! font-light!'>
                     <strong className='font-sans! text-[2rem]! sm:text-4xl/14!'>Origin</strong><br/>{movementData.origin}
                 </Typography>
@@ -74,7 +74,7 @@ export default async function MovementPage({
                 <Typography className='font-mono! px-4! py-1! sm:px-0! sm:py-3! sm:mx-4! text-primary-light! dark:text-primary-dark! text-[0.95rem]! sm:text-md! font-light!'>
                     <strong className='font-sans! text-[2rem]! sm:text-4xl/13!'>Notable artists</strong><br/> {artistsData.map((item) => item.name).join(", ")}
                 </Typography>
-                <Typography className='font-mono! px-4! pb-1! sm:px-0! sm:pb-3! sm:mx-4! text-primary-light! dark:text-primary-dark! text-[0.95rem]! sm:text-md! font-light!'>
+                <Typography className='font-mono! px-4! pb-2! sm:px-0! sm:pb-3! sm:mx-4! text-primary-light! dark:text-primary-dark! text-[0.95rem]! sm:text-md! font-light!'>
                     <strong className='font-sans! text-[2rem]! sm:text-4xl/13!'>Description</strong><br/> {movementData.description}
                 </Typography>
             </Box>
