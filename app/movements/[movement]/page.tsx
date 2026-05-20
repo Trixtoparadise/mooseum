@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { GifBox } from '@mui/icons-material';
 
 interface ArtistData {
   id: string;
