@@ -51,19 +51,17 @@ export default async function MovementPage({
 }) {
     const { movement } = await params;
 
-    const [movementRes, artistRes, artworkRes] = await Promise.all([
+    const [movementRes, artistRes] = await Promise.all([
         fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/movements/${movement}`),
-        fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artists/byMovement/${movement}`),
-        fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artworks/byMovement/${movement}`)
+        fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artists/byMovement/${movement}`)
     ])
 
     const artistsData: ArtistData[] = await artistRes.json();
-    const artworksData: ArtworkData[] = await artworkRes.json();
     const movementData: MovementData = await movementRes.json();
 
     return (
         <Box className='mt-6! my-8! sm:my-15! mx-4! sm:mx-19! w-full! max-w-full! sm:max-w-5xl!'>
-            <Typography className='font-mono! font-extralight! text-[2rem]! sm:text-[2.2rem]! mb-5!'>
+            <Typography className='font-mono! font-extralight! text-[1.7rem]! text-center! sm:text-start! sm:text-[2.2rem]! mb-5!'>
                 {movementData.name}
             </Typography>
             <Box className='flex-1 flex flex-col gap-2 p-4 mb-10 mr-0! sm:mr-6! max-w-full lg:max-w-2/3 bg-primary-light/10 dark:bg-primary-dark/10 rounded-md'>
