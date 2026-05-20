@@ -32,7 +32,7 @@ export default function ImageMasonry(props: PropType) {
 
     return (
         <Box className="w-full max-w-full sm:max-w-6xl">
-            <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={{xs: 0, sm: 3, md: 4}} sequential>
+            <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={{xs: 0, sm: 2, md: 3}} sequential>
                 {data.map((item, index) => (
                     <div 
                         key={index}
