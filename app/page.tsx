@@ -18,10 +18,10 @@ export default function Page() {
     <div className='flex grow justify-center'>
 		<div className='hidden sm:flex gap-x-10 md:gap-x-20 items-center sm:justify-center mx-10 mt-25 mb-10'>
 			<div className='md:max-w-md -mt-10'>
-				<h1 className=' text-center align-middle font-sans font-bold text-[4rem]! md:text-[5.15rem]!  text-primary-light dark:text-primary-dark text-base/14 md:text-base/16! mb-8'>
+				<h1 className=' text-center align-middle font-sans text-[4rem]! md:text-[5.15rem]!  text-primary-light dark:text-primary-dark text-base/14 md:text-base/16! mb-8'>
 					EXPLORE THE REALM OF INTERESTING IMAGINATIONS
 				</h1>
-				<p className='text-center align-middle font-mono md:text-[1.05rem] mb-5 text-primary-light dark:text-primary-dark font-light'>
+				<p className='text-center align-middle font-mono md:text-[1.05rem] mb-5 text-primary-light dark:text-primary-dark font-extralight'>
 					Read about your favourite artist, discover new artworks and educate your self about
 					movements spanning almost a millenium.
 				</p>
@@ -54,10 +54,10 @@ export default function Page() {
 		</div>
 		<div className='sm:hidden justify-center mx-6 mt-25 mb-10'>
 			<div className='-mt-17'>
-				<h1 className=' text-center align-middle font-sans font-bold text-[3rem]! text-primary-light dark:text-primary-dark text-base/12! mb-6'>
+				<h1 className=' text-center align-middle font-sans text-[3rem]! text-primary-light dark:text-primary-dark text-base/12! mb-6'>
 					EXPLORE THE REALM OF INTERESTING IMAGINATIONS
 				</h1>
-				<p className='text-center align-middle font-mono text-[1rem] mb-8 text-primary-light dark:text-primary-dark font-light'>
+				<p className='text-center align-middle font-mono text-[1rem] mb-8 text-primary-light dark:text-primary-dark font-extralight'>
 					Read about your favourite artists, discover new artworks and 
 					educate your self about movements spanning almost a millenium.
 				</p>
