@@ -1024,9 +1024,9 @@ const artworksData : Record<string, ArtworkData[]> = {
             year: 1840,
             description: "A striking, atmospheric marine canvas utilizing dramatic, fiery ocean colors to deliver a fierce political critique against the horrific transatlantic slave trade.",
             location: "Museum of Fine Arts, Boston",
-            artistId: "artist-jmw-turner",
+            artistId: "artist-william-turner",
             movementId: "movement-romanticism",
-            imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109084/The_Slave_Ship_J.M.W._Turner_xgx5ai.jpg"
+            imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779371051/The_Slave_Ship_William_Turner_wv1eto.jpg"
         },
         {
             id: "artwork-friedrich-wanderer-fog",
