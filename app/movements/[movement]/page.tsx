@@ -1015,16 +1015,6 @@ const artworksData : Record<string, ArtworkData[]> = {
             artistId: "artist-winslow-homer",
             movementId: "movement-realism",
             imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109082/Breezing_Up_A_Fair_Wind_Winslow_Homer_benejs.jpg"
-        },
-        {
-            id: "artwork-courbet-the-desperate-man",
-            title: "The Desperate Man",
-            year: 1845,
-            description: "A dramatic, close-up psychological self-portrait tracking intense human panic with stark lighting and raw anatomical truth.",
-            location: "Private Collection",
-            artistId: "artist-gustave-courbet",
-            movementId: "movement-realism",
-            imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109082/The_Desperate_Man_Gustave_Courbet_ubl6rr.jpg"
         }
     ],
     "Romanticism" : [
