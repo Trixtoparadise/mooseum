@@ -154,7 +154,7 @@ export default function CustomisedTimeline () {
 							<Typography component="span"  className="flex! font-sans! text-primary-light! dark:text-primary-dark! text-[3rem]/12! my-5! text-start!">
 								{item.title}
 							</Typography>
-							<Typography className="font-mono! font-light! text-primary-light! dark:text-primary-dark! max-w-full 2xl:max-w-2/3 ">
+							<Typography className="font-mono! font-extralight! text-primary-light! dark:text-primary-dark! max-w-full 2xl:max-w-2/3 ">
 								{item.content}
 							</Typography>
 						</AnimatedTimelineContent>
