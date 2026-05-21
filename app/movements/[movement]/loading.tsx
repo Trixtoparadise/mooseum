@@ -1,6 +1,6 @@
+import { Suspense } from 'react';
 import Stack from '@mui/material/Stack';
 import Skeleton from '@mui/material/Skeleton';
-import { Suspense } from 'react';
 
 export default function Loading() {
     return (
@@ -28,6 +28,8 @@ export default function Loading() {
                         </Stack>
                     </Stack>
                 </Stack>
+
+                <Skeleton variant="text" width={270} height={60} className="flex! mx-auto! sm:mx-0! sm:mb-7! bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
 
                 <Stack className='grid! xs:grid-cols-1! sm:grid-cols-2! gap-4 w-full! max-w-full! sm:max-w-6xl!' >
                     {[...Array(4)].map((_, i) => (
