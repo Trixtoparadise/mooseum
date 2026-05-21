@@ -1176,7 +1176,7 @@ const artworksData : Record<string, ArtworkData[]> = {
         },
         {
             id: "artwork-magritte-menaced-assassin",
-            title: "The Menaced_Assassin",
+            title: "The Menaced Assassin",
             year: 1927,
             description: "An enigmatic, theatrical mystery scene staging bowler-hatted observers tracking a crime, standardizing the artist's signature deadpan surrealism.",
             location: "Museum of Modern Art, New York",
