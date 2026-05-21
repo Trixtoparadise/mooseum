@@ -30,7 +30,7 @@ export default function Loading() {
                 </Stack>
 
                 <Stack className='grid! xs:grid-cols-1! sm:grid-cols-2! gap-4 w-full! max-w-full! sm:max-w-6xl!' >
-                    {[...Array(5)].map((_, i) => (
+                    {[...Array(4)].map((_, i) => (
                         <Skeleton key={i} variant="rounded" width="100%" height={180} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave"/>
                     ))}
                 </Stack>

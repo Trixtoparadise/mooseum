@@ -21,31 +21,31 @@ export default function Loading() {
                     <Stack className="bg-primary/5! dark:bg-primary-dark/20! rounded-md! w-full sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/3 p-10!">
                         <Stack spacing={4} direction={{ xs: 'column', md: 'row'}} className='py-5!'>
                             <Stack direction="column" className="flex grow" spacing={1.5}>
-                                <Skeleton variant="rounded" width="50%" height={30} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
-                                <Skeleton variant="rounded" width="80%" height={30} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
+                                <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                                <Skeleton variant="rounded" width="80%" height={20} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
                             </Stack>
                             <Stack direction="column" className="flex grow" spacing={1.5}>
-                                <Skeleton variant="rounded" width="50%" height={30} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
-                                <Skeleton variant="rounded" width="80%" height={30} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
+                                <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                                <Skeleton variant="rounded" width="80%" height={20} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
                             </Stack>
                         </Stack>
                         <Stack spacing={1.5} className='py-5'>
-                            <Skeleton variant="rounded" width="50%" height={30} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
-                            <Skeleton variant="rounded" width="80%" height={30} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
+                            <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                            <Skeleton variant="rounded" width="80%" height={20} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
                         </Stack>
                         <Stack spacing={1.5} className='py-5'>
-                            <Skeleton variant="rounded" width="50%" height={30} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
-                            <Skeleton variant="rounded" width="80%" height={30} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
+                            <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                            <Skeleton variant="rounded" width="80%" height={20} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
                         </Stack>
                         <Stack spacing={1.5} className='py-5'>
-                            <Skeleton variant="rounded" width="50%" height={30} className="bg-primary-light/20 dark:bg-primary-dark/50!" animation="wave" />
-                            <Skeleton variant="rounded" width="100%" height={180} className="bg-primary-light/20 dark:bg-primary-dark/35!" animation="wave" />
+                            <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20 dark:bg-primary-dark/50!" animation="wave" />
+                            <Skeleton variant="rounded" width="100%" height={130} className="bg-primary-light/20 dark:bg-primary-dark/35!" animation="wave" />
                         </Stack>
                     </Stack>
                 </Stack>
 
                 <Skeleton variant="text" width={270} height={80} className=" mt-12! mb-7! bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
-                <Stack className='grid! sm:grid-cols-1! md:grid-cols-2! lg:grid-cols-3! gap-4 w-full! max-w-full! sm:max-w-6xl!' >
+                <Stack className='grid! grid-cols-1! md:grid-cols-2! lg:grid-cols-3! gap-4 w-full! max-w-full! sm:max-w-6xl!' >
                     {[...Array(5)].map((_, i) => (
                         <Skeleton key={i} variant="rounded" width="100%" height={180} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave"/>
                     ))}
