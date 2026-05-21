@@ -970,7 +970,7 @@ const artworksData : Record<string, ArtworkData[]> = {
             year: 1305,
             description: "A groundbreaking fresco from the Scrovegni Chapel showing authentic human emotions, physical weight, and landscape depth instead of gold voids.",
             location: "Scrovegni Chapel, Padua",
-            artistId: "artist-giotto",
+            artistId: "artist-giotto-di-bondone",
             movementId: "movement-proto-renaissance",
             imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109081/The_Flight_into_Egypt_Giotto_qnlyff.jpg"
         },
