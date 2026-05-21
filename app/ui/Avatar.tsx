@@ -33,7 +33,7 @@ export default function ArtistAvatar(props : PropType) {
                     <Avatar 
                         alt={name}
                         src={imageUrl}
-                        className="sm:w-13.5! w-11! sm:h-13.5! h-11! border-2! border-shade! dark:border-shade!"
+                        className="sm:w-13.5! w-11! sm:h-13.5! h-11! border-2! border-shade-light! dark:border-shade-light!"
                     />
                     <Stack className="text-start!">
                         <p className="font-semibold font-mono text-[0.85rem]">{name}</p>
