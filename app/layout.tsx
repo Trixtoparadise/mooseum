@@ -23,7 +23,7 @@ const cascadiaMono = Cascadia_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "MOOSEUM | Virtual Fine Art Gallery & Casual Art History Guide",
+	title: "MOOSEUM | Virtual Fine Art Gallery, Digital Museum & Casual Art History Guide",
 	description: "A digital museum where you can browse through a well curated collection of artworks, casually read about your favourite artists, discover artworks and the meaning and process behind them.",
 	keywords: "Moose, Moo, Artworks, Artists, Art movement, Digital, Museum, Johannesburg Art Gallery, MoMA, Tate, Louvre, Metropolitan, Mona Lisa, Sistine Chapel, Starry Night, Self-Portrait, Impressionism, Renaissance, Modern Art, Byzantine Art, Cubism, Pop Art",
 	robots: "index, follow",
