@@ -1,97 +1,23 @@
-"use client";
-import * as React from 'react';
-import SearchBar  from "../ui/SearchBar";
-import ImageMasonry from '../ui/Masonry';
-import Skeleton from '@mui/material/Skeleton';
+import Artworks from "./artworks";
+import type { Metadata } from "next"; 
 
-type Artwork = {
-    id: string;
-    title: string;
-    year: number;
-    description: string;
-    location: string;
-    artistId: string;
-    movementId: string;
-    imageUrl: string;
-}
+export const metadata: Metadata = {
+	title: "Artworks - MOOSEUM",
+	description: "Browse throught the collection artworks categorised in alphabetic order",
+	keywords: `Artworks, Mona Lisa, Sistine Chapel, Starry Night, Self-Portrait, title, Portrait of Jeanne HÃ©buterne, Gypsy Woman with Baby, Nu couchÃ© (Reclining Nude),Woman with Blue Eyes ,Portrait of Chaim Soutine, Composition VIII ,Composition X ,Color Study: Squares with Concentric Circles Untitled (First Abstract Watercolor), Composition VII, The History of Mexico, Detroit Industry, Dream of a Sunday Afternoon, Man, Controller of the Universe, The Flower Carrier, Woman with a Parasol â€“ Madame Monet and Her Son, Rouen Cathedral, Facade (Sunset), Haystack at the End of Summer, Impression, Sunrise, Bridge over a Pond of Water Lilies, The Treachery of Images, Golconda, The Great Masturbator, The Persistence of Memory, The Lovers, The Empire of Light, II, Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening, The Son of Man, The Elephants, Swans Reflecting Elephants, The Railway, A Bar at the Folies-BergÃ¨reLe DÃ©jeuner sur l'herbe (The Luncheon on the Grass), Olympia, The Fifer, The Holy Trinity (Trinity Icon), Saviour (Zvenigorod Deisis tier), The Vladimir Madonna and Child, Saint Paul, The Archangel Michael, The Starry Night, Self-Portrait, The Potato Eaters, Sunflowers, Bedroom in Arles, Portrait of Adele Bloch-Bauer I, The Kiss, Hope II, Judith and the Head of Holofernes, The Three Ages of Woman, The Haywain Triptych, The Temptation of Saint Anthony, The Garden of Earthly Delights, The Extraction of the Stone of Madness, The Seven Deadly Sins and the Four Last Things, White on White, Woman with a rake, Black Square, Red Square, Suprematist Composition, The Demon Seated, Swan Princess, Lilacs, The Demon Downcast, Portrait of the Artist's Wife in a Pink Dress, Guernica, The Old Guitarist, Family of Saltimbanques, Les Demoiselles d'Avignon, Dora Maar with Cat, The Elevation of the Cross, Samson and Delilah, The Descent from the Cross, The Judgment of Paris, Portrait of Marchesa Brigida Spinola-DoriaLa GrenouillÃ¨re, Bal du moulin de la Galette, Luncheon of the Boating Party, A Girl with a Watering Can, The Umbrellas (Les Parapluies), The Nude Maja (La maja desnuda), Charles IV of Spain and His Family, The Third of May 1808, Saturn Devouring His Son, The Clothed Maja (La maja vestida), Self-Portrait with Thorn Necklace and Hummingbird, The Two Fridas, The Wounded Deer, The Broken Column, Henry Ford Hospital, The Burial of the Count of Orgaz, View of Toledo, The Disrobing of Christ (El Expolio), LaocoÃ¶n, The Resurrection of Christ, Self-Portrait (1500), Adam and Eve (engraving), Melencolia I (engraving), Knight, Death, and the Devil (engraving), Hare (watercolor), Bridge at Villeneuve-la-Garenne, The Flood at Port-Marly, Snow at Louveciennes, View of the Canal Saint-Martin, Chemin de la Machine, Louveciennes, The Tower of Babel, Landscape with the Fall of Icarus, The Hunters in the Snow, The Census at Bethlehem, The Peasant Wedding, The Fiddler, I and the Village, America Windows (stained glass), The Birthday, White Crucifixion, The Last Judgment, Kiss of Judas, Madonna Enthroned (Ognissanti Madonna), Lamentation (The Mourning of Christ), Meeting at the Golden Gate, The Birth of Venus, Primavera, Venus and Mars, Madonna of the Magnificat, The Adoration of the Magi, Judith Beheading Holofernes, David with the Head of Goliath, Medusa, The Calling of Saint Matthew, The Entombment of Christ, Mona Lisa, Salvator Mundi, The Last Supper, Vitruvian Man (drawing), Lady with an Ermine, Las Meninas (The Maids of Honour), The Surrender of Breda, Rokeby Venus, Portrait of Pope Innocent X, Water Carrier of Seville, The Dance, Woman with a Hat, The Joy of Life (Le bonheur de vivre), Red Room (Harmony in Red), Blue Nude (Souvenir of Biskra), Madonna and Child with Canon van der Paele, Annunciation, Portrait of a Man (Self-Portrait?), The Ghent Altarpiece, The Arnolfini Portrait, Ballet Rehearsal on Stage, The Dance Class, The Tub, Woman with a Parasol, L'Absinthe, The Return of the Prodigal Son, Belshazzar's Feast, The Night Watch, The Anatomy Lesson of Dr. Nicolaes Tulp, Self-Portrait with Two Circles, Venus of Urbino, Bacchus and Ariadne, Sacred and Profane Love, Assumption of the Virgin, Rape of Europa, In Bed: The Kiss, At the Moulin Rouge, The Laundress, Moulin Rouge: La Goulue (poster), Aristide Bruant in His Cabaret (poster), The Wheat Sifters, Young Ladies of the Village, The Artist's Studio, The Stone Breakers, A Burial at Ornans, The Boulevard Montmartre on a Winter's Afternoon, Avenue de l'OpÃ©ra, Sunlight, Winter Afternoon, The Artist's Garden at Eragny, Hoarfrost, Boulevard Montmartre at Night, The Fighting Temeraire, Norham Castle, Sunrise, Rain, Steam, and Speed â€“ The Great Western Railway, Slave Ship (Slavers Throwing Overboard the Dead and Dying), Snow Storm: Hannibal and his Army Crossing the Alps, The Sick Child, The Scream, Puberty, Death in the Sickroom, Madonna, The Large Bathers, Still Life with a Basket of Apples, The Card Players, Mont Sainte-Victoire (series), A Boy in a Red Waistcoat, The Death of Sardanapalus, Greece on the Ruins of Missolonghi, Liberty Leading the People, Women of Algiers in their Apartment, Medea About to Kill Her Children, The Sleeping Gypsy, The Dream, Tiger in a Tropical Storm (Surprised!), The Snake Charmer, The Hungry Lion, Eiffel Tower, The Channel of Gravelines, Grand Fort Philippe, A Sunday Afternoon on the Island of La Grande Jatte, The Circus, Bathers at AsniÃ¨res, Fish Magic, Senecio (Head of an Old Man), The Twittering Machine, Castle and Sun, Ad Parnassum, Tableau 2, Composition with Red, Blue, and Yellow, Broadway Boogie Woogie, Victory Boogie Woogie, Composition with Blue and Yellow, The Tilled Field, The Farm, Harlequin's Carnival, Blue II, Constellations (series), Eight Elvises, Lavender Disaster, Marilyn Diptych, Campbell's Soup Cans (series), Shot Marilyns, Tahitian Women on the Beach, Where Do We Come From? What Are We? Where Are We Going?, The Yellow Christ, Vision After the Sermon, Arearea (Joyfulness), Portrait of Pope Julius II, The Wedding of the Virgin, School of Athens, Sistine MadonnaSt. George and the Dragon, Doni Tondo, The Last Judgment (Sistine Chapel fresco), The Torment of Saint Anthony, Sistine Chapel ceiling (fresco), The Entombment, Convergence, Autumn Rhythm (Number 30), The Deep, Blue Poles, Number 5, 1948, Untitled (Skull), Irony of Negro Policeman, Hollywood Africans, Dustheads, Flexible, Double Dutch, Sun, Sea and Sand, African Bird Magic (Sakalava Rail), The Victorian Philanthropistâ€™s Parlour, The American Library (Wall Painting), Tar Beach, The United States of Attica, American People Series #20: Die, Sunflower Quilting Bee at Arles, Dancing at the Louvre, Tutu, ReginaNegritude, Christine ,The Court of the Oba of Benin, Resurrection, The Eclipse, Iris, Tulips, Jonquils and Crocuses ,Snoopyâ€”Early Sun Display on Earth, Air View of a Spring Nursery, The Block, Empress of the Blues, Three Folk Musicians, Piano Lesson, The Dove, The Emancipation Approximation, Darkytown Rebellion,Gone: An Historical Romance of a Civil War as It Occurred b'tween the Dusky Thighs of One Young Negress and Her Heart ,Grub for Sharks: A Concession to the Negro Populace, The Battle of Atlanta: Being the Narrative of a Negress in the Flames of Liberty`,
+	robots: "index, follow",
+	openGraph: {
+		title: "Artwork",
+		description: "Browse throught the collection artworks categorised in alphabetic order",
+		url: "https://mooseum.online",
+		siteName: "MOOSEUM"
+	}
+};
 
-export default function Artists () {
-    const [artworks, setArtworks] = React.useState<Artwork[]>([]);
-    const [isLoading, setIsLoading] = React.useState(true);
-
-    const groupedArtworks = React.useMemo(() => {
-        if (!artworks) return {};
-
-        return [...artworks]
-            .sort((a, b) => a.title.localeCompare(b.title))
-            .reduce((acc, artwork) => {
-                const char = artwork.title.charAt(0).toUpperCase();
-                if (!acc[char]) acc[char] = [];
-                acc[char].push(artwork);
-                return acc;
-            }, {} as Record<string, typeof artworks>)
-    }, [artworks]);
-
-    React.useEffect(() => {
-        async function getArtworks () {
-            const headersList = {
-                "Accept": "*/*"
-            }
-
-            try {
-                const response = await fetch("https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artworks", { 
-                    method: "GET",
-                    headers: headersList
-                });
-
-                let data = await response.text();
-                setArtworks(JSON.parse(data));
-                setIsLoading(false)
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        getArtworks();
-    }, []);
-    
+export default function ArtworksPage () {
     return (
-        <div className="flex-1 sm:justify-start mt-6 sm:my-10 mx-4 sm:mx-19">
-            <div className='sm:mb-15 mb-8 justify-center'>
-                <SearchBar 
-                    searchItem="artwork" 
-                    searchList={artworks}
-                />
-            </div>
-            <div className='sm:max-h-full max-h-[78vh] sm:overflow-y-hidden overflow-y-scroll'>
-                {isLoading ? (
-                    <div className="space-y-12">
-                        {[1, 2, 3, 4, 5].map((section) => (
-                            <div key={section} className='w-full max-w-full sm:max-w-6xl'>
-                                <Skeleton variant="text" width={40} height={60} className="mb-4 bg-primary-light/10! dark:bg-primary-dark/50!" />
-                                
-                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-5'>
-                                    {Array.from({ length: 13 }).map((_, index) => (
-                                        <Skeleton key={index} variant="rectangular" width="100%" height={320} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    Object.entries(groupedArtworks).map(([letter, items]) => (
-                        <div key={letter} className="mb-8">
-                            <div className="top-0 z-10 py-2 mb-4">
-                                <span className="text-4xl font-bold font-sans text-primary-light dark:text-primary-dark">{letter}</span>
-                            </div>
-
-                            <ImageMasonry 
-                                data={items}
-                            />
-                        </div>
-                    ))
-                )}
-            </div>
-        </div>
+        <main>
+            <Artworks />
+        </main>
     )
-}
+} 
