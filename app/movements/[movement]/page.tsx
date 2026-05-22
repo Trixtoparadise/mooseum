@@ -931,16 +931,6 @@ const artworksData : Record<string, ArtworkData[]> = {
             artistId: "artist-henri-matisse",
             movementId: "movement-primitivism",
             imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109073/Dance_Henri_Matisse_utir5j.jpg"
-        },
-        {
-            id: "artwork-modigliani-blaise-cendrars",
-            title: "Portrait of Blaise Cendrars",
-            year: 1917,
-            description: "An elongated modern portrait showing mask-like simplified features, inspired directly by traditional African tribal carving design rules.",
-            location: "Galleria Nazionale d'Arte Moderna, Rome",
-            artistId: "artist-amedeo-modigliani",
-            movementId: "movement-primitivism",
-            imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109075/Portrait_of_Blaise_Cendrars_-_Amedeo_Modigliani_qgszd7.jpg"
         }
     ],
     "Proto Renaissance" : [
