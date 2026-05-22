@@ -5,6 +5,7 @@ import localFont from 'next/font/local';
 import type { Metadata } from "next";
 import { ThemeProvider } from 'next-themes';
 import { Cascadia_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 
 const brownBagLunch = localFont({
@@ -55,6 +56,7 @@ export default function DashboardLayout({
 									</footer>
 								</ThemeProvider>
 							</AppRouterCacheProvider>
+							<Analytics />
 					</body>
 			</html>
 		)
