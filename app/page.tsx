@@ -37,6 +37,7 @@ export default function Page() {
 					</Button>
 					<Button 
 						variant='contained'
+						href='/exhibitions#top'
 						LinkComponent={Link}
 						className='bg-primary-light! dark:bg-primary-alternate! text-secondary! normal-case! dark:text-secondary-alternate! hover:text-secondary-light! hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! dark:hover:text-primary-alternate! font-mono! font-[350]! text-[1.1rem]! md:text-[1.05rem]! text-base/8! md:text-base/8! px-5! md:px-3! py-3! text-center!'
 					>
@@ -80,6 +81,7 @@ export default function Page() {
 				</Button>
 				<Button 
 					variant='contained'
+					href='/exhibitions#top'
 					LinkComponent={Link}
 					className='bg-primary-light! dark:bg-primary-alternate! normal-case! text-secondary! dark:text-secondary-alternate! hover:text-secondary-light! hover:bg-shade-light/90! dark:hover:bg-secondary-alternate! dark:hover:text-primary-alternate! font-mono! font-[350]! text-[1rem]! text-base/8! text-center! px-6! py-3!'
 				>
