@@ -2,12 +2,12 @@ import Box from '@mui/material/Box';
 import MasonryAlt from '@/app/ui/MasonryAlt';
 import Typography from '@mui/material/Typography';
 
-interface ArtistData {
+interface movementData {
   id: string;
   name: string;
-  years: string;
-  nationality: string;
-  biography: string;
+  period: string;
+  origin: string;
+  description: string;
   movementIds: string[];
   imageUrl: string;
 }
@@ -33,6 +33,34 @@ interface ArtworkData {
   imageUrl: string;
 }
 
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ movement: string}>
+}) {
+    const { movement } = await params; 
+
+    const res =  await fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artists/${movement}`);
+    const movementData: MovementData = await res.json();
+
+    if (!movementData) {
+        return { title: "Movement Not Found", description: "Sorry, this art movement is unavailable at the moment." };
+    }
+    
+    return {
+        title: movementData.name + " | " + movementData.origin + " | " + movementData.period,
+        description: movementData.name + " " + movementData.period + " " +movementData.origin + " " + movementData.description,
+        keywords: movementData.name + " " + + movementData.period + " " +movementData.origin + " " + movementData.description,
+        openGraph: {
+            title: movementData.name + " | " + movementData.origin + " | " + movementData.period,
+            description: movementData.description,
+            type: "article",
+            url: `https://mooseum.online/artists/${movement}`,
+            siteName: "MOOSEUM"
+        }
+    } 
+}
+
 export async function generateStaticParams() {
     const res =  await fetch('https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/movements/');
     const movements: MovementData[] = await res.json();
@@ -54,7 +82,7 @@ export default async function MovementPage({
         fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artists/byMovement/${movement}`)
     ])
 
-    const artistsData: ArtistData[] = await artistRes.json();
+    const artistsData: movementData[] = await artistRes.json();
     const movementData: MovementData = await movementRes.json();
 
     return (
