@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	}
 };
 
-export default function ArtworksPage () {
+export default function MovementsPage () {
     return (
     	<Movements />
     )
