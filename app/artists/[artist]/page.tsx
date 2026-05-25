@@ -34,6 +34,34 @@ interface ArtworkData {
   imageUrl: string;
 }
 
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ artist: string}>
+}) {
+    const { artist } = await params; 
+
+    const res =  await fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artists/${artist}`);
+    const artistData: ArtistData = await res.json();
+
+    if (!artistData) {
+        return { title: "Artist Not Found", description: "Sorry, this artist is unavailable at the moment." };
+    }
+    
+    return {
+        title: artistData.name + " | " + artistData.nationality + " | " + artistData.years,
+        description: artistData.name + " " + artistData.years + " " +artistData.nationality + " " + artistData.biography,
+        keywords: artistData.name + " " + + artistData.years + " " +artistData.nationality + " " + artistData.biography,
+        openGraph: {
+            title: artistData.name + " | " + artistData.nationality + " | " + artistData.years,
+            description: artistData.biography,
+            type: "article",
+            url: `https://mooseum.online/artists/${artist}`,
+            siteName: "MOOSEUM"
+        }
+    } 
+}
+
 export async function generateStaticParams() {
     const res =  await fetch('https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/artists/');
     const artists: ArtistData[] = await res.json();
