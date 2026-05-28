@@ -815,16 +815,6 @@ const artworksData : Record<string, ArtworkData[]> = {
     ],
     "Northern Renaissance" : [
         {
-            id: "artwork-weyden-descent-cross",
-            title: "The Descent from the Cross",
-            year: 1435,
-            description: "A monumental altarpiece notable for its intense emotional realism and a unique, tightly packed sculptural layout that mimics a wooden shrine box.",
-            location: "Museo del Prado, Madrid",
-            artistId: "artist-rogier-van-der-weyden",
-            movementId: "movement-northern-renaissance",
-            imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109064/The_Descent_from_the_Cross_Rogier_van_der_Weyden_z6l93p.jpg"
-        },
-        {
             id: "artwork-holbein-the-ambassadors",
             title: "The Ambassadors",
             year: 1533,
@@ -843,6 +833,16 @@ const artworksData : Record<string, ArtworkData[]> = {
             artistId: "artist-pieter-bruegel-the-elder",
             movementId: "movement-northern-renaissance",
             imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109064/The_procession_to_calvary_Pieter_Bruegel_the_Elder_hfxldm.jpg"
+        },
+        {
+            id: "artwork-weyden-descent-cross",
+            title: "The Descent from the Cross",
+            year: 1435,
+            description: "A monumental altarpiece notable for its intense emotional realism and a unique, tightly packed sculptural layout that mimics a wooden shrine box.",
+            location: "Museo del Prado, Madrid",
+            artistId: "artist-rogier-van-der-weyden",
+            movementId: "movement-northern-renaissance",
+            imageUrl: "https://res.cloudinary.com/dzzwjwhfl/image/upload/v1779109064/The_Descent_from_the_Cross_Rogier_van_der_Weyden_z6l93p.jpg"
         },
         {
             id: "artwork-durer-feast-rosary",
