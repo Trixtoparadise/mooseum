@@ -40,7 +40,7 @@ export async function generateMetadata({
 }) {
     const { movement } = await params; 
 
-    const res =  await fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/movement/${movement}`);
+    const res =  await fetch(`https://mooseum-gvb0g8gehsbde0fk.southafricanorth-01.azurewebsites.net/api/movements/${movement}`);
     const movementData: MovementData = await res.json();
 
     if (!movementData) {
