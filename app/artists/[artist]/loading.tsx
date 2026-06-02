@@ -18,7 +18,7 @@ export default function Loading() {
                             className='aspect-square! sm:aspect-auto! sm:h-full! bg-primary-light/10! dark:bg-primary-dark/35!' 
                         />
                     </Stack>
-                    <Stack className="bg-primary/5! dark:bg-primary-dark/20! rounded-md! w-full sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/3 p-10!">
+                    <Stack className="bg-primary-light/5! dark:bg-primary-dark/20! rounded-md! w-full sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/3 p-10!">
                         <Stack spacing={4} direction={{ xs: 'column', md: 'row'}} className='py-5!'>
                             <Stack direction="column" className="flex grow" spacing={1.5}>
                                 <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
@@ -38,8 +38,8 @@ export default function Loading() {
                             <Skeleton variant="rounded" width="80%" height={20} className="bg-primary-light/10! dark:bg-primary-dark/35!" animation="wave" />
                         </Stack>
                         <Stack spacing={1.5} className='py-5'>
-                            <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20 dark:bg-primary-dark/50!" animation="wave" />
-                            <Skeleton variant="rounded" width="100%" height={130} className="bg-primary-light/20 dark:bg-primary-dark/35!" animation="wave" />
+                            <Skeleton variant="rounded" width="50%" height={20} className="bg-primary-light/20! dark:bg-primary-dark/50!" animation="wave" />
+                            <Skeleton variant="rounded" width="100%" height={130} className="bg-primary-light/20! dark:bg-primary-dark/35!" animation="wave" />
                         </Stack>
                     </Stack>
                 </Stack>
