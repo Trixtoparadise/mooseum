@@ -1,10 +1,10 @@
 "use client";
+import Image from 'next/image';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import Paper from '@mui/material/Paper';
 import ImageModal from '@/app/ui/ImageModal';
-import { text } from 'stream/consumers';
 
 interface ArtworkData {
   id: string;
@@ -49,11 +49,13 @@ export default function MasonryAlt(props: PropType) {
                         className='mb-4! cursor-pointer' 
                         onClick={() => handleOpen(index)}
                     >
-                        <img
+                        <Image
+                            width={500}
+                            height={500}
+                            src={item.imageUrl}
                             loading="lazy"
                             alt="background-image"
                             className='rounded-t-md!'
-                            src={`${item.imageUrl}?w=500&auto=format`}
                         />
                         <Paper className='bg-primary-light/10! dark:bg-primary-dark/10! p-4 font-light! text-[1rem] text-center text-primary-light! dark:text-primary-dark! rounded-b-md!'>
                             {characteristics[index]}
