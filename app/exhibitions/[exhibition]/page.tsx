@@ -44,7 +44,7 @@ export default async function ExhibitionPage({
     const exhibitionData: ExhibitionData = await exhibitionRes.json();
 
     return (
-        <Box className='mx-6! sm:mx-18!'>
+        <Box className='mx-6! sm:mx-18! w-full! max-w-full! sm:max-w-7xl!'>
             <Typography className='font-mono! font-extralight! text-[2rem]! sm:text-5xl! uppercase text-center! sm:text-start! text-primary-light! dark:text-primary-dark! mt-5! sm:mt-15! mb-8!'>
                 {exhibitionData.title}
             </Typography>
@@ -58,7 +58,7 @@ export default async function ExhibitionPage({
                             {item.sectionDescription}
                         </Typography>                        
                         <Box>
-                            <Masonry columns={{ xs: 1, md: 2 }} spacing={{xs: 0, md: 2}} sequential>
+                            <Masonry columns={{ xs: 1, md: 2, lg: 3}} spacing={{xs: 0, md: 2}} sequential>
                                 {item.artworks.map((artwork) => {
                                     return (
                                         <Box 
