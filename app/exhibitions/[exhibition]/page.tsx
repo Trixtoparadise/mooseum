@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import Paper from '@mui/material/Paper';
@@ -65,11 +66,13 @@ export default async function ExhibitionPage({
                                             className="mb-4!"
                                             key={artwork.artworkTitle}
                                         >
-                                             <img
+                                             <Image
                                                 loading="lazy"
-                                                alt={artwork.artworkTitle}
                                                 className='rounded-t-md!'
-                                                src={`${artwork.imageUrl}?w=500&auto=format`}
+                                                width={500}
+                                                height={500}
+                                                src={artwork.imageUrl}
+                                                alt={artwork.artworkTitle}
                                             />
                                             <Paper className='bg-primary-light/10! dark:bg-primary-dark/10! p-4 font-light! text-[1rem] text-center text-primary-light! dark:text-primary-dark! rounded-b-md!'>
                                                 {artwork.artworkDescription}
