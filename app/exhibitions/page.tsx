@@ -1,6 +1,7 @@
 "use client"
 import * as React from 'react';
 import Box from "@mui/material/Box";
+import Skeleton from '@mui/material/Skeleton';
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ExhibitionButton from "../ui/ExhibitionButton";
@@ -55,7 +56,12 @@ export default function Exhibitions () {
         <div>
             {isLoading ? 
                 (
-                    <p>Loading...</p>
+                    <Stack
+                        className="mx-4! sm:mx-18! my-5! sm:my-10!"
+                    >
+                        <Skeleton variant="text" width={280} height={60} className="mb-8! bg-primary-light/10! dark:bg-primary-dark/50!" />
+                        <Skeleton variant="rectangular" width={400} height={460} className="mb-4 bg-primary-light/10! dark:bg-primary-dark/50! rounded-md!" />
+                    </Stack>
                 ) :
                 (
                     <Stack 
