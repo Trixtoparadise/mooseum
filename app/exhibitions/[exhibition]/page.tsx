@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
-import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
@@ -60,10 +58,13 @@ export default async function ExhibitionPage({
                             {item.sectionDescription}
                         </Typography>                        
                         <Box>
-                            <Masonry columns={{ xs: 1, md: 2 }} spacing={{xs: 2, md: 3}} sequential>
+                            <Masonry columns={{ xs: 1, md: 2 }} spacing={{xs: 0, md: 2}} sequential>
                                 {item.artworks.map((artwork) => {
                                     return (
-                                        <Box key={artwork.artworkTitle}>
+                                        <Box 
+                                            className="mb-4!"
+                                            key={artwork.artworkTitle}
+                                        >
                                              <img
                                                 loading="lazy"
                                                 alt={artwork.artworkTitle}
