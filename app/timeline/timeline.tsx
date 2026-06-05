@@ -102,7 +102,7 @@ export default function CustomisedTimeline () {
                                 viewport={{ once: false }}
                                 whileInView={{ scaleY: 1 }}
                                 transition={{ duration: 0.8, ease: "easeInOut" }}
-                                className='origin-bottom! bg-primary! dark:bg-primary-dark! w-[0.08rem]! sm:w-[0.2rem]!'
+                                className='origin-bottom! bg-primary-light! dark:bg-primary-dark! w-[0.08rem]! sm:w-[0.2rem]!'
                                 />
                             </div>
                             <AnimatedDot 
@@ -120,11 +120,11 @@ export default function CustomisedTimeline () {
                             <div className='relative! flex! flex-col! items-center! flex-1! w-full!'>
                                 <div className='absolute! inset-0! bg-primary-light/30! dark:bg-primary-dark/30! w-[0.05rem]! sm:w-[0.2rem]! mx-auto!' />
                                 <AnimatedConnector
-                                initial={{ scaleY: 0 }}
-                                viewport={{ once: false }}
-                                whileInView={{ scaleY: 1 }}
-                                transition={{ duration: 0.8, ease: "easeInOut" }}
-                                className='origin-top! bg-primary! dark:bg-primary-dark! w-[0.08rem]! sm:w-[0.2rem]!'
+                                  initial={{ scaleY: 0 }}
+                                  viewport={{ once: false }}
+                                  whileInView={{ scaleY: 1 }}
+                                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                                  className='origin-top! bg-primary-light! dark:bg-primary-dark! w-[0.08rem]! sm:w-[0.2rem]!'
                                 />
                             </div> 
                         </TimelineSeparator>
