@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
@@ -39,11 +40,13 @@ export default function ImageMasonry(props: PropType) {
                         className='my-4! cursor-pointer' 
                          onClick={() => handleOpen(index)}
                     >
-                        <img
-                            loading="lazy"
+                        <Image
+                            width={500}
+                            height={500}
                             alt={item.title}
+                            src={item.imageUrl}
+                            loading="lazy"
                             className='rounded-t-md! block w-full'
-                            src={`${item.imageUrl}?w=500&auto=format`}
                         />
                         <Paper className='rounded-b-md! bg-primary-light/10! dark:bg-primary-dark/10! p-4 font-light! text-center text-primary-light! dark:text-primary-dark!'>
                             {item.title}
